@@ -47,11 +47,39 @@
   }
 
   
-
+  a:not(.ui.button) {
+    color: seagreen !important;
+  }
   
 
   
+  .inverted a:not(.ui.button) {
+     color: darkseagreen !important;
+  }
+  
 
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/me/background.jpg);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: black;
+    
+
+    
+    background-image: url(/me/background-dark.jpg);
+    
+  }
   
 </style>
 
@@ -80,6 +108,10 @@
   </div>
   <div class="item">
     <i class="large link home icon" title="Home" onclick="window.location.href = 'http:\/\/example.org\/'"></i>
+  </div>
+  
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
   </div>
   
   
@@ -300,6 +332,17 @@
     
 
     
+    <article class="ui segment utterances-comments" data-html2canvas-ignore>
+      <script
+        src="https://utteranc.es/client.js"
+        repo="ikarthikmb/ikarthikmb.github.io"
+        issue-term="og:title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </article>
+    
 
     
   </div>
@@ -321,9 +364,13 @@
           <div class="dream-max-width">
             <header class="ui basic very padded segment dream-header">
   
+  <div class="ui small circular image">
+    <img src="https://lh5.googleusercontent.com/vkZBvbMpMa9toeJF4M11hwHQXPU_yb1tigm9bRRTsWTQh2wqWLQIMmv4lJKp-ZcOtzO5lQ=w1280" alt="avatar" />
+  </div>
+  
 
   <div class="content">
-    <h1 class="ui medium header">Set headerTitle in the config to display<span class="sub header"></span>
+    <h1 class="ui medium header">Karthik Mahendra<span class="sub header">One Million Dreams Aside, One Tiny Brave Heart Inside</span>
     </h1>
 
     <article class="ui horizontal list">
@@ -379,7 +426,7 @@
       <div class="ui medium header">About Me</div>
       <p>Hi, my name is Karthik Mahendra.</p>
 <p>Electronic circuit designer, curious of smart technology, wanderlust, intrigued with life hacking.</p>
-<p>He is a self-learner, learn through experiences, enjoys the process underwent with over whelming challenges. Spend spare time on capturing shots, enhancing them, also an amateur video editor</p>
+<p>A self-learner, learn through experiences, enjoys the process underwent with over whelming challenges. Spends spare time on capturing shots, enhancing them, also an amateur video editor.</p>
 
     </article>
   </div>
@@ -392,7 +439,19 @@
   
 
   
+  <div class="item">
+    <a href="mailto:karthikmb8@gmail.com">
+      <i class="large mail icon" title="Email"></i>
+    </a>
+  </div>
+  
 
+  
+  <div class="item">
+    <a href="https://twitter.com/qrthik" target="_blank">
+      <i class="large twitter icon" title="Twitter"></i>
+    </a>
+  </div>
   
 
   
@@ -402,7 +461,19 @@
   
 
   
+  <div class="item">
+    <a href="https://www.linkedin.com/in/karthik-mb" target="_blank">
+      <i class="large linkedin icon" title="Linkedin"></i>
+    </a>
+  </div>
+  
 
+  
+  <div class="item">
+    <a href="https://github.com/ikarthikmb" target="_blank">
+      <i class="large github icon" title="GitHub"></i>
+    </a>
+  </div>
   
 
   
@@ -455,8 +526,8 @@
 
     <script>
   window.defaultDark =  null 
-  window.backgroundDark =  null 
-  window.backgroundImageDark =  null 
+  window.backgroundDark = "black"
+  window.backgroundImageDark = "/me/background-dark.jpg"
   window.darkNav =  null 
   window.maxTags =  null 
   window.hasTwitterEmbed =  null 
