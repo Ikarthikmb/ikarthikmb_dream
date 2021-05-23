@@ -2,17 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Karthik Mahendra</title>
-    <link>http://example.org/categories/</link>
+    <link>https://ikarthikmb.github.io/categories/</link>
     <description>Recent content in Categories on Karthik Mahendra</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 May 2021 18:57:54 +0530</lastBuildDate><atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 May 2021 18:57:54 +0530</lastBuildDate><atom:link href="https://ikarthikmb.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>productivity</title>
-      <link>http://example.org/categories/productivity/</link>
+      <link>https://ikarthikmb.github.io/categories/productivity/</link>
       <pubDate>Thu, 20 May 2021 18:57:54 +0530</pubDate>
       
-      <guid>http://example.org/categories/productivity/</guid>
+      <guid>https://ikarthikmb.github.io/categories/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>verilog</title>
+      <link>https://ikarthikmb.github.io/categories/verilog/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/verilog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>raspberry pi</title>
+      <link>https://ikarthikmb.github.io/categories/raspberry-pi/</link>
+      <pubDate>Sun, 24 May 2020 01:59:33 +0530</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/raspberry-pi/</guid>
       <description></description>
     </item>
     
