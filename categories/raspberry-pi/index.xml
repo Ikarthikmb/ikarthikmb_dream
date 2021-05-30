@@ -9,20 +9,20 @@
     <lastBuildDate>Sun, 24 May 2020 01:59:33 +0530</lastBuildDate><atom:link href="https://ikarthikmb.github.io/categories/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Set up Raspberry Pi 4(Wi-Fi)</title>
-      <link>https://ikarthikmb.github.io/rpi4_setup_wifi/</link>
+      <link>https://ikarthikmb.github.io/posts/rpi4_setup_wifi/</link>
       <pubDate>Sun, 24 May 2020 01:59:33 +0530</pubDate>
       
-      <guid>https://ikarthikmb.github.io/rpi4_setup_wifi/</guid>
+      <guid>https://ikarthikmb.github.io/posts/rpi4_setup_wifi/</guid>
       <description>The set up for Raspberry Pi using Wi-Fi is the same as the previous article on how to Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Moniter, No Wi-Fi) with some minor changes which we are going to see.
 Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power supply Personal computer  Steps to install the required software tools  If you had followed the previous article then skip these steps and move to &amp;lsquo;step-6&amp;rsquo;.</description>
     </item>
     
     <item>
       <title>Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Monitor, No Wi-Fi)</title>
-      <link>https://ikarthikmb.github.io/rpi4_setup_w_ethernet/</link>
+      <link>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</link>
       <pubDate>Fri, 03 Apr 2020 01:59:33 +0530</pubDate>
       
-      <guid>https://ikarthikmb.github.io/rpi4_setup_w_ethernet/</guid>
+      <guid>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</guid>
       <description>In this we shall be working with Raspberry Pi 4 Model-B of 1Gb RAM for the set up. Raspberry-Pi is a single board computer used for educational purposes and DIY projects with an affordable cost, requires a power supply of 5 volts with 3 amps current.
 Operating Systems like Raspbian OS, Windows, Linux, RISC OS, can be installed into it. The Pi 4 model has Ethernet, wireless adapter, USB type-C port, and 40 GPIO(General Purpose Input Output) pins.</description>
     </item>

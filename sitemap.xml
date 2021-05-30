@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ikarthikmb.github.io/categories/</loc>
-    <lastmod>2021-05-24T00:34:08+05:30</lastmod>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/posts/customsirishortcuts/</loc>
     <lastmod>2021-05-20T18:57:54+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/</loc>
-    <lastmod>2021-05-24T00:34:08+05:30</lastmod>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/posts/</loc>
     <lastmod>2021-05-24T00:34:08+05:30</lastmod>
@@ -21,7 +21,7 @@
     <lastmod>2021-05-20T18:57:54+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/tags/</loc>
-    <lastmod>2021-05-24T00:34:08+05:30</lastmod>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/tags/gtkwave/</loc>
     <lastmod>2021-05-24T00:34:08+05:30</lastmod>
@@ -41,16 +41,73 @@
     <loc>https://ikarthikmb.github.io/categories/verilog/</loc>
     <lastmod>2021-05-24T00:34:08+05:30</lastmod>
   </url><url>
-    <loc>https://ikarthikmb.github.io/tags/howto/</loc>
-    <lastmod>2020-05-24T01:59:33+05:30</lastmod>
+    <loc>https://ikarthikmb.github.io/tags/electronics/</loc>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/tags/raspberry-pi/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/wallpaper/rpired_wall/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/wallpaper/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/wallpaper/</loc>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/categories/walpaper/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/wallpaper/carriertransport_map/</loc>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/wallpaper/fouriertransform_note/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/math/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/categories/math/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/mindmaps/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/categories/mindmaps/</loc>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/note/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/semiconductors/</loc>
+    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/wallpaper/cam_inside_wall/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/latex/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/wallpaper/latex_meme/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/meme/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/categories/meme/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/wallpaper/harddrive_open/</loc>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/howto/</loc>
     <lastmod>2020-05-24T01:59:33+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/categories/raspberry-pi/</loc>
     <lastmod>2020-05-24T01:59:33+05:30</lastmod>
   </url><url>
-    <loc>https://ikarthikmb.github.io/rpi4_setup_wifi/</loc>
+    <loc>https://ikarthikmb.github.io/posts/rpi4_setup_wifi/</loc>
     <lastmod>2020-05-24T01:59:33+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/tags/wifi/</loc>
@@ -59,7 +116,7 @@
     <loc>https://ikarthikmb.github.io/tags/ethernet/</loc>
     <lastmod>2020-04-03T01:59:33+05:30</lastmod>
   </url><url>
-    <loc>https://ikarthikmb.github.io/rpi4_setup_w_ethernet/</loc>
+    <loc>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</loc>
     <lastmod>2020-04-03T01:59:33+05:30</lastmod>
   </url>
 </urlset>
