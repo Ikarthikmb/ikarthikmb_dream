@@ -203,7 +203,7 @@ Icarus verilog is a open-source verilog simulation and synthesis tool. It operat
       <article class="main">
         
 
-        <p><img src="/posts/iverilog_guide/iverilog_thumb01.png" alt=""></p>
+        <p><img src="/posts/iverilog_guide/iverilog_thumb_pdf.png" alt=""></p>
 <p>In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.</p>
 <p><strong>Icarus verilog</strong> is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the <code>vvp</code> command. For synthesis, the compiler generates netlists in the desired format. (source:  icarus verilog<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>)</p>
 <h1 id="setup">Setup</h1>
@@ -225,7 +225,6 @@ Icarus verilog is a open-source verilog simulation and synthesis tool. It operat
 <pre><code>$ vvp a.out
 </code></pre><h1 id="example">Example</h1>
 <h2 id="writing-verilog-for-an-inverter">Writing Verilog for an Inverter</h2>
-<p><img src="/posts/iverilog_guide/notgate.png" alt="NOT gate"></p>
 <ul>
 <li>An inverter is a circuit which inverts(reverses) the input signal. Now, lets build a 1 bit inverter and compile it with icarus verilog.</li>
 <li>Lets define the inverter module first, to do so</li>
@@ -248,11 +247,10 @@ Icarus verilog is a open-source verilog simulation and synthesis tool. It operat
   assign y = ~a;
 endmodule
 </code></pre><h2 id="writing-testbench-for-the-inverter">Writing Testbench for the Inverter</h2>
-<p><img src="/posts/iverilog_guide/inverter_tb_wave.png" alt="Timing wave of Inverter"></p>
 <ul>
 <li>Along with the main testbench code an additional <code>$dumpfile</code> to write the values into a <code>.vcd</code> file and, <code>$dumpvars</code> has to be defined. The testbench code is shown below.</li>
 </ul>
-<pre><code>module inverter_tb();
+<pre><code class="language-{.numberLines}" data-lang="{.numberLines}">module inverter_tb();
   wire y;
   reg  a = 0;
 
@@ -262,7 +260,7 @@ endmodule
 
   initial begin
     $monitor(&quot;a=%d, y=%d&quot;, a, y);
-    $dumpvars(&quot;inverter.vcd);
+    $dumpvars(&quot;inverter.vcd&quot;);
     $dumpvars(0, inverter);
   end
 endmodule
@@ -301,7 +299,7 @@ module inverter_tb();
 
   initial begin
     $monitor(&quot;a=%d, y=%d&quot;, a, y); // Monitoring output
-    $dumpvars(&quot;inverter.vcd);     // storing generated values in vsd file
+    $dumpvars(&quot;inverter.vcd&quot;);     // storing generated values in vsd file
     $dumpvars(0, inverter);
   end
 endmodule
@@ -417,6 +415,14 @@ endmodule
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
     
 
     
@@ -425,6 +431,24 @@ endmodule
     
     
           <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/communications/" title="communications">
+              communications
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/computing/" title="computing">
+              computing
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/crypto/" title="crypto">
+              crypto
+            </a>
           
           
           
@@ -478,6 +502,12 @@ endmodule
           
             <a class="ui label" href="/tags/meme/" title="meme">
               meme
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/microwaves/" title="microwaves">
+              microwaves
             </a>
           
           
@@ -544,8 +574,8 @@ endmodule
     <article class="ui segment markdown-body">
       <div class="ui medium header">About Me</div>
       <p>Hi, my name is Karthik Mahendra.</p>
-<p>Electronic circuit designer, curious of smart technology, wanderlust, intrigued with life hacking.</p>
-<p>A self-learner, learn through experiences, enjoys the process underwent with over whelming challenges. Spends spare time on capturing shots, enhancing them, also an amateur video editor.</p>
+<p>Electronic circuit designer, curious of smart technology, wanderlust, intrigued with life-hacking.</p>
+<p>A self-learner, learn through practical experiences, enjoys the process underwent with overwhelming challenges. Spends spare time on capturing shots, enhancing them, also an amateur video editor.</p>
 
     </article>
   </div>

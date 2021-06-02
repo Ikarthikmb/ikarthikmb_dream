@@ -38,6 +38,15 @@ Icarus verilog is a open-source verilog simulation and synthesis tool. It operat
     
     <item>
       <title>Carrier Transport in Semiconductors</title>
+      <link>https://ikarthikmb.github.io/mindmaps/carriertransport_map/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/mindmaps/carriertransport_map/</guid>
+      <description>A mind-map for transport carriers in semiconductors.</description>
+    </item>
+    
+    <item>
+      <title>Carrier Transport in Semiconductors</title>
       <link>https://ikarthikmb.github.io/wallpaper/carriertransport_map/</link>
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       
@@ -99,6 +108,51 @@ Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power s
       <guid>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</guid>
       <description>In this we shall be working with Raspberry Pi 4 Model-B of 1Gb RAM for the set up. Raspberry-Pi is a single board computer used for educational purposes and DIY projects with an affordable cost, requires a power supply of 5 volts with 3 amps current.
 Operating Systems like Raspbian OS, Windows, Linux, RISC OS, can be installed into it. The Pi 4 model has Ethernet, wireless adapter, USB type-C port, and 40 GPIO(General Purpose Input Output) pins.</description>
+    </item>
+    
+    <item>
+      <title>Semiconductor Technology</title>
+      <link>https://ikarthikmb.github.io/mindmaps/atom_mm/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/mindmaps/atom_mm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Commucications</title>
+      <link>https://ikarthikmb.github.io/mindmaps/communications_mm/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/mindmaps/communications_mm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microwave Technology</title>
+      <link>https://ikarthikmb.github.io/mindmaps/microwave_mm/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/mindmaps/microwave_mm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptology</title>
+      <link>https://ikarthikmb.github.io/mindmaps/crypto_mm/</link>
+      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/mindmaps/crypto_mm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computer Networks</title>
+      <link>https://ikarthikmb.github.io/mindmaps/networking_mm/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/mindmaps/networking_mm/</guid>
+      <description></description>
     </item>
     
   </channel>
