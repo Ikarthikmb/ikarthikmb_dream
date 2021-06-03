@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sirishortcuts on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/tags/sirishortcuts/</link>
+    <description>Recent content in sirishortcuts on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/tags/sirishortcuts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Siri Shortcuts</title>
+      <link>https://ikarthikmb.github.io/posts/customsirishortcuts/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/posts/customsirishortcuts/</guid>
+      <description>Make your Own Siri Shortcuts with Blocks Apple has this amazing feature where you can block code to perform tasks that can convert markdown to rich text or extract source code from a html page or drain water from your iphone. Your can dowload Shortcuts from App store1. Here are my custom siri shortcuts, hope you like them.
+ Markdown to Rich text   Input any text to this shortcut, which will be rendered to text and save it as pdf.</description>
+    </item>
+    
+  </channel>
+</rss>

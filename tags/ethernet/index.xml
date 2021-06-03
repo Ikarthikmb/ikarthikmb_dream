@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ethernet on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/tags/ethernet/</link>
+    <description>Recent content in ethernet on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Apr 2020 01:59:33 +0530</lastBuildDate><atom:link href="https://ikarthikmb.github.io/tags/ethernet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Monitor, No Wi-Fi)</title>
+      <link>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</link>
+      <pubDate>Fri, 03 Apr 2020 01:59:33 +0530</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</guid>
+      <description>Contents
+ Hardware Requirements: Steps to install the required software tools  Step-1: OS Download Step-2: Imager Step-3: SSH Client Download Step-4: Real VNC Viewer Step-5: Image Burning Step-6: ssh Step-7: Power Step-8: Network Connections Step-9: SSH Configuration Step-10: Authentication Step-11: Pi Terminal   Accessing Pi Desktop Remotely   In this we shall be working with Raspberry Pi 4 Model-B of 1Gb RAM for the set up. Raspberry-Pi is a single board computer used for educational purposes and DIY projects with an affordable cost, requires a power supply of 5 volts with 3 amps current.</description>
+    </item>
+    
+  </channel>
+</rss>

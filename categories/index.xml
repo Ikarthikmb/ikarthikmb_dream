@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/categories/</link>
+    <description>Recent content in Categories on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>posts</title>
+      <link>https://ikarthikmb.github.io/categories/posts/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>walpaper</title>
+      <link>https://ikarthikmb.github.io/categories/walpaper/</link>
+      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/walpaper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>https://ikarthikmb.github.io/categories/math/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mindmaps</title>
+      <link>https://ikarthikmb.github.io/categories/mindmaps/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/mindmaps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>meme</title>
+      <link>https://ikarthikmb.github.io/categories/meme/</link>
+      <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/meme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>https://ikarthikmb.github.io/categories/projects/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/categories/projects/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

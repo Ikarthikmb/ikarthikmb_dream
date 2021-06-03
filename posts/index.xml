@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/posts/</link>
+    <description>Recent content in Posts on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Siri Shortcuts</title>
+      <link>https://ikarthikmb.github.io/posts/customsirishortcuts/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/posts/customsirishortcuts/</guid>
+      <description>Make your Own Siri Shortcuts with Blocks Apple has this amazing feature where you can block code to perform tasks that can convert markdown to rich text or extract source code from a html page or drain water from your iphone. Your can dowload Shortcuts from App store1. Here are my custom siri shortcuts, hope you like them.
+ Markdown to Rich text   Input any text to this shortcut, which will be rendered to text and save it as pdf.</description>
+    </item>
+    
+    <item>
+      <title>Open Source Tools to Get Started With Verilog Simulation</title>
+      <link>https://ikarthikmb.github.io/posts/iverilog_guide/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/posts/iverilog_guide/</guid>
+      <description>In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.
+Icarus verilog is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the vvp command.</description>
+    </item>
+    
+    <item>
+      <title>Set up Raspberry Pi 4(Wi-Fi)</title>
+      <link>https://ikarthikmb.github.io/posts/rpi4_setup_wifi/</link>
+      <pubDate>Sun, 24 May 2020 01:59:33 +0530</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/posts/rpi4_setup_wifi/</guid>
+      <description>Contents
+ Hardware Requirements: Steps to install the required software tools  Further Steps:   Accessing Pi Desktop Remotely   The set up for Raspberry Pi using Wi-Fi is the same as the previous article on how to Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Moniter, No Wi-Fi) with some minor changes which we are going to see.
+Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power supply Personal computer  Steps to install the required software tools  If you had followed the previous article then skip these steps and move to &amp;lsquo;step-6&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Monitor, No Wi-Fi)</title>
+      <link>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</link>
+      <pubDate>Fri, 03 Apr 2020 01:59:33 +0530</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</guid>
+      <description>Contents
+ Hardware Requirements: Steps to install the required software tools  Step-1: OS Download Step-2: Imager Step-3: SSH Client Download Step-4: Real VNC Viewer Step-5: Image Burning Step-6: ssh Step-7: Power Step-8: Network Connections Step-9: SSH Configuration Step-10: Authentication Step-11: Pi Terminal   Accessing Pi Desktop Remotely   In this we shall be working with Raspberry Pi 4 Model-B of 1Gb RAM for the set up. Raspberry-Pi is a single board computer used for educational purposes and DIY projects with an affordable cost, requires a power supply of 5 volts with 3 amps current.</description>
+    </item>
+    
+  </channel>
+</rss>

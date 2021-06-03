@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Measuring Soil Moisture using Raspberry Pi | Karthik Mahendra</title>
+
+    
+
+
+
+<meta name="author" content="ikarthikmb" />
+<meta name="description" content="Karthik Mahendra" />
+
+
+
+<meta name="generator" content="Hugo 0.83.1" />
+
+<link rel="canonical" href="https://ikarthikmb.github.io/projects/soil_moisture_rpi/" />
+
+
+<meta property="og:title" content="Measuring Soil Moisture using Raspberry Pi" />
+<meta property="og:description" content="Contents
+ Hardware: Circuit Connection:  Essential Packages   The Code Youtube Video Tutorial:   Do you know how often to water plants? Or outpoured plants and lost them. To solve this I thought it would be more circumstantial if we can get the value of water content inside the soil in order to make a decision for watering the plants appropriately.
+In this project lets try to build a circuit which can measure the water content value of the soil eventually control the flow using Raspberry Pi." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikarthikmb.github.io/projects/soil_moisture_rpi/" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2020-03-29T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-03-29T00:00:00&#43;00:00" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Measuring Soil Moisture using Raspberry Pi"/>
+<meta name="twitter:description" content="Contents
+ Hardware: Circuit Connection:  Essential Packages   The Code Youtube Video Tutorial:   Do you know how often to water plants? Or outpoured plants and lost them. To solve this I thought it would be more circumstantial if we can get the value of water content inside the soil in order to make a decision for watering the plants appropriately.
+In this project lets try to build a circuit which can measure the water content value of the soil eventually control the flow using Raspberry Pi."/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/site_bg/vertical_lightcir.png);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: black;
+    
+
+    
+    background-image: url(/site_bg/vertical_darkcir.png);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = 'https:\/\/ikarthikmb.github.io\/'"></i>
+  </div>
+  
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+  
+  
+  <div class="item">
+    <i class="large link search icon" onclick="toggleSearch()"></i>
+  </div>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+  
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hardware">Hardware:</a></li>
+    <li><a href="#circuit-connection">Circuit Connection:</a>
+      <ul>
+        <li><a href="#essential-packages">Essential Packages</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-code">The Code</a></li>
+    <li><a href="#youtube-video-tutorial">Youtube Video Tutorial:</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Measuring Soil Moisture using Raspberry Pi<span class="sub header">
+            <span class="left">
+              @
+              
+                
+                  <a href="https://ikarthikmb.github.io" target="_blank">Karhtik Mahendra</a>
+                
+              
+
+              | 
+                  
+                    Sunday, Mar 29, 2020
+                  
+                
+
+              | 2 minutes read
+
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Measuring%20Soil%20Moisture%20using%20Raspberry%20Pi&url=https%3a%2f%2fikarthikmb.github.io%2fprojects%2fsoil_moisture_rpi%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fikarthikmb.github.io%2fprojects%2fsoil_moisture_rpi%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <p><strong>Contents</strong></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="#hardware">Hardware:</a></li>
+<li><a href="#circuit-connection">Circuit Connection:</a>
+<ul>
+<li><a href="#essential-packages">Essential Packages</a></li>
+</ul>
+</li>
+<li><a href="#the-code">The Code</a></li>
+<li><a href="#youtube-video-tutorial">Youtube Video Tutorial:</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<hr>
+<p>Do you know how often to water plants? Or outpoured plants and lost them. To solve this I thought it would be more circumstantial if we can get the value of water content inside the soil in order to make a decision for watering the plants appropriately.</p>
+<p>In this project lets try to build a circuit which can measure the water content value of the soil eventually control the flow using Raspberry Pi.</p>
+<h2 id="hardware">Hardware:</h2>
+<ul>
+<li>Raspberry Pi 2/3/4</li>
+<li>Soil moisture sensor</li>
+<li>MCP3008</li>
+<li>Jumpers</li>
+</ul>
+<h2 id="circuit-connection">Circuit Connection:</h2>
+<p><img src="/projects/soil_moisture_rpi_fig/soil-moisture-circuit.jpg" alt="Circuit diagram"></p>
+<ol>
+<li>MCP3008 GND to GND</li>
+<li>MCP3008 CS to RPI 8</li>
+<li>MCP3008 DIN to RPI 10</li>
+<li>MCP3008 DOUT to RPI 9</li>
+<li>MCP3008  CLK to RPI 11</li>
+<li>MCP3008 AGND to GND</li>
+<li>MCP3008 VREF to +3V</li>
+<li>MCP3008 VCC to +3V</li>
+<li>SoilMoisture A0 to MCP3008 CH0</li>
+<li>SoilMoisture VCC to +3V</li>
+<li>SoilMoisture GND to GND</li>
+</ol>
+<p>Make all the connections and power up the Raspberry Pi. If you want to learn how to connect a Raspberry Pi check out my previous post on how to <a href="https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/">Set Up Raspberry Pi 4 Through Laptop/pc Using Ethernet Cable(No Monitor, No Wi-Fi)</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h3 id="essential-packages">Essential Packages</h3>
+<p>Before you run the code you have to install few libraries, move on with the following steps.</p>
+<pre><code>sudo apt-get update
+sudo apt-get install build-essential python-dev python-smbus git
+cd ~
+git clone https://github.com/adafruit/Adafruit_Python_MCP3008.git
+cd Adafruit_Python_MCP3008
+sudo python setup.py install
+</code></pre><h2 id="the-code">The Code</h2>
+<p>Once the library has been installed it&rsquo;s time to execute the code. You can use the below code or download it from <a href="https://github.com/Ikarthikmb/Hardware-Codes/blob/master/RaspberryPi/moist-soil.py">here</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<pre><code>import RPi.GPIO as GPIO
+from time import sleep
+
+import Adafruit_MCP3008
+
+am = Adafruit_MCP3008.MCP3008(clk = 11, cs = 8, miso = 9, mosi = 10)
+
+while True:
+  moisture_value = am.read_adc(0)
+  per = moisture_value * 100 / 1023
+  print(&quot;Recorded moisture value is %s percentage&quot; % per)
+  if moisture_value &gt;= 930:
+    print(&quot; No water, Can you plaease water me&quot;)
+  elif moisture_value &lt; 930 and moisture_value &gt;= 350:
+    print(&quot; I'm sufficient &quot;)
+  elif moisture_value &lt; 350 :
+    print(&quot; Stop drowning me!&quot;)
+  sleep(1.5)
+</code></pre><h2 id="youtube-video-tutorial">Youtube Video Tutorial:</h2>
+<p><a href="https://youtu.be/ahQhEWf1PRI" title="Click to play"><img src="/projects/soil_moisture_rpi_fig/soilmoisture_youtubethumb.png" alt=""></a><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>You can rewrite the code and change the parameters for your requirements. If you have suggestions or any trouble with the project, feel free to comment below. Happy Circuiting!</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/">https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://github.com/Ikarthikmb/Hardware-Codes/blob/master/RaspberryPi/moist-soil.py">https://github.com/Ikarthikmb/Hardware-Codes/blob/master/RaspberryPi/moist-soil.py</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://youtu.be/ahQhEWf1PRI">https://youtu.be/ahQhEWf1PRI</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+      </article>
+    </section>
+
+    
+
+    
+    <article class="ui segment utterances-comments" data-html2canvas-ignore>
+      <script
+        src="https://utteranc.es/client.js"
+        repo="ikarthikmb/ikarthikmb.github.io"
+        issue-term="og:title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </article>
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 Karthik Mahendra</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/me.png" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">Karthik Mahendra<span class="sub header">One Million Dreams Aside, One Tiny Brave Heart Inside</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/posts">
+        <i class="archive icon" title="Archives"></i>
+      </a>
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/circuits/" title="circuits">
+              circuits
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/communications/" title="communications">
+              communications
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/computing/" title="computing">
+              computing
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/crypto/" title="crypto">
+              crypto
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/electronics/" title="electronics">
+              electronics
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/ethernet/" title="ethernet">
+              ethernet
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/gtkwave/" title="gtkwave">
+              gtkwave
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/howto/" title="howto">
+              howto
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/inverter/" title="inverter">
+              inverter
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/iverilog/" title="iverilog">
+              iverilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/latex/" title="latex">
+              latex
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/math/" title="math">
+              math
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/meme/" title="meme">
+              meme
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/microwaves/" title="microwaves">
+              microwaves
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/mindmaps/" title="mindmaps">
+              mindmaps
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/note/" title="note">
+              note
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/productivity/" title="productivity">
+              productivity
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/raspberry-pi/" title="raspberry pi">
+              raspberry pi
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/semiconductors/" title="semiconductors">
+              semiconductors
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/sensors/" title="sensors">
+              sensors
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/sirishortcuts/" title="sirishortcuts">
+              sirishortcuts
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/verilog/" title="verilog">
+              verilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/wallpaper/" title="wallpaper">
+              wallpaper
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/wifi/" title="wifi">
+              wifi
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">About Me</div>
+      <p>Hi, my name is Karthik Mahendra.</p>
+<p>Electronic circuit designer, curious of smart technology, wanderlust, intrigued with life-hacking.</p>
+<p>A self-learner, learn through practical experiences, enjoys the process underwent with overwhelming challenges. Spends spare time on capturing shots, enhancing them, also an amateur video editor.</p>
+
+    </article>
+  </div>
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">Social Links</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+  <div class="item">
+    <a href="mailto:karthikmb8@gmail.com">
+      <i class="large mail icon" title="Email"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://twitter.com/qrthik" target="_blank">
+      <i class="large twitter icon" title="Twitter"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+
+  
+
+  
+  <div class="item">
+    <a href="https://www.linkedin.com/in/karthik-mb" target="_blank">
+      <i class="large linkedin icon" title="Linkedin"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://github.com/ikarthikmb" target="_blank">
+      <i class="large github icon" title="GitHub"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="Search" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/ikarthikmb.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    <script>
+  window.defaultDark =  true 
+  window.backgroundDark = "black"
+  window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
+
+
+
+<script>
+  hljs.initHighlightingOnLoad()
+  setHighlightTheme()
+
+  function setHighlightTheme() {
+    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
+    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
+
+    var lightTheme = "gruvbox-light"
+    var darkTheme = "gruvbox-dark"
+    var theme = isDark === 'y' ? darkTheme : lightTheme
+
+    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
+    $('pre').css('background', isDark === 'y' ? '#333' : '')
+  }
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

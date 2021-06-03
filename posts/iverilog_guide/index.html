@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Open Source Tools to Get Started With Verilog Simulation | Karthik Mahendra</title>
+
+    
+
+
+
+<meta name="author" content="Karhtik Mahendra" />
+<meta name="description" content="In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.
+Icarus verilog is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the vvp command." />
+
+
+
+<meta name="generator" content="Hugo 0.83.1" />
+
+<link rel="canonical" href="https://ikarthikmb.github.io/posts/iverilog_guide/" />
+
+
+<meta property="og:title" content="Open Source Tools to Get Started With Verilog Simulation" />
+<meta property="og:description" content="In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.
+Icarus verilog is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the vvp command." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikarthikmb.github.io/posts/iverilog_guide/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-05T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-24T00:34:08&#43;05:30" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Open Source Tools to Get Started With Verilog Simulation"/>
+<meta name="twitter:description" content="In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.
+Icarus verilog is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the vvp command."/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/site_bg/vertical_lightcir.png);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: black;
+    
+
+    
+    background-image: url(/site_bg/vertical_darkcir.png);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = 'https:\/\/ikarthikmb.github.io\/'"></i>
+  </div>
+  
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+  
+  
+  <div class="item">
+    <i class="large link search icon" onclick="toggleSearch()"></i>
+  </div>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+  
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#steps-to-install-icarus-verilog-and-gtkwave">Steps to Install Icarus Verilog and GTKWave</a></li>
+    <li><a href="#edit-and-run-the-code-with-icarus-verilog">Edit and Run the code with Icarus Verilog</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#writing-verilog-for-an-inverter">Writing Verilog for an Inverter</a></li>
+    <li><a href="#writing-testbench-for-the-inverter">Writing Testbench for the Inverter</a></li>
+    <li><a href="#compiling-verilog-code">Compiling Verilog Code</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Open Source Tools to Get Started With Verilog Simulation<span class="sub header">
+            <span class="left">
+              @
+              
+                
+                  <a href="https://ikarthikmb.github.io" target="_blank">Karhtik Mahendra</a>
+                
+              
+
+              | 
+                  
+                    Monday, Apr 5, 2021
+                  
+                
+
+              | 3 minutes read
+
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Open%20Source%20Tools%20to%20Get%20Started%20With%20Verilog%20Simulation&url=https%3a%2f%2fikarthikmb.github.io%2fposts%2fiverilog_guide%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fikarthikmb.github.io%2fposts%2fiverilog_guide%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <p><img src="/posts/iverilog_guide/iverilog_thumb_pdf.png" alt=""></p>
+<p>In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.</p>
+<p><strong>Icarus verilog</strong> is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the <code>vvp</code> command. For synthesis, the compiler generates netlists in the desired format. (source:  icarus verilog<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>)</p>
+<h1 id="setup">Setup</h1>
+<h2 id="steps-to-install-icarus-verilog-and-gtkwave">Steps to Install Icarus Verilog and GTKWave</h2>
+<p>Open the terminal and follow through the steps for the installtion of icarus verilog and gtkwave. Initially <code>team-electronics</code> package has to be added to the current packages. Do</p>
+<pre><code>sudo add-apt-repository ppa:team-electronics/ppa
+</code></pre><p>You will get no message, which means the package has successfully added. Now update the local repository by</p>
+<pre><code>sudo apt-get update
+</code></pre><p>Then install the Icarus verilog package</p>
+<pre><code>sudo apt-get install iverilog
+</code></pre><p>and the gtkwave package which is used to view the timing diagrams for your verilog code.</p>
+<pre><code>sudo apt-get install gtkwave
+</code></pre><h2 id="edit-and-run-the-code-with-icarus-verilog">Edit and Run the code with Icarus Verilog</h2>
+<p><strong>Step-1:</strong> Write a verilog code</p>
+<pre><code>$ gedit hello1.v
+</code></pre><p><strong>Step-2:</strong> Compiling a verilog code with icarus verilog</p>
+<pre><code>$ iverilog hello1.v
+</code></pre><p><strong>Step-3:</strong> run the code</p>
+<pre><code>$ vvp a.out
+</code></pre><h1 id="example">Example</h1>
+<h2 id="writing-verilog-for-an-inverter">Writing Verilog for an Inverter</h2>
+<ul>
+<li>An inverter is a circuit which inverts(reverses) the input signal. Now, lets build a 1 bit inverter and compile it with icarus verilog.</li>
+<li>Lets define the inverter module first, to do so</li>
+</ul>
+<pre><code>module inverter();
+</code></pre><ul>
+<li>It has two ports one for input and the other for output, let us define them as follows:</li>
+</ul>
+<pre><code>module inverter(
+  input   a,
+  output  y
+);
+</code></pre><ul>
+<li>Then assign the value for output and end the module.</li>
+</ul>
+<pre><code>module inverter(
+  input   a,
+  output  y
+);
+  assign y = ~a;
+endmodule
+</code></pre><h2 id="writing-testbench-for-the-inverter">Writing Testbench for the Inverter</h2>
+<ul>
+<li>Along with the main testbench code an additional <code>$dumpfile</code> to write the values into a <code>.vcd</code> file and, <code>$dumpvars</code> has to be defined. The testbench code is shown below.</li>
+</ul>
+<pre><code class="language-{.numberLines}" data-lang="{.numberLines}">module inverter_tb();
+  wire y;
+  reg  a = 0;
+
+  always begin
+    #10 a = ~a;
+  end
+
+  initial begin
+    $monitor(&quot;a=%d, y=%d&quot;, a, y);
+    $dumpvars(&quot;inverter.vcd&quot;);
+    $dumpvars(0, inverter);
+  end
+endmodule
+</code></pre><h2 id="compiling-verilog-code">Compiling Verilog Code</h2>
+<p>As mentioned in the start of the article, open the terminal and type the following line. If it prompts nothing with an immediate next line, the codeis fine, else recheck the code for errors and compile back again.</p>
+<pre><code>$ iverilog inverter.v
+</code></pre><ul>
+<li>For output wave</li>
+</ul>
+<pre><code>$ vvp a.out
+</code></pre><ul>
+<li>Finally, use gtkwave to to see the timing waveform for the generated <code>.vcd</code> file.</li>
+</ul>
+<pre><code>$ gtkwave inverter.v
+</code></pre><p><strong>Conclusion:</strong> In this post we learnt to use the open source tool for compiling and visualizing verilog code using icarus verilog and gtkwave respectively.</p>
+<h1 id="code">Code</h1>
+<ul>
+<li>Use the below code or download it from github here<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</li>
+</ul>
+<pre><code>// Module initialization
+module inverter(
+  input   a,      // input declaration
+  output  y       // output declaration
+);
+  assign y = ~a;  // Assigning output value
+endmodule
+
+// Testbench declaration
+module inverter_tb();
+  wire y;
+  reg  a = 0;
+
+  always begin
+    #10 a = ~a;   // assigning a = NOT a for every 10ns
+  end
+
+  initial begin
+    $monitor(&quot;a=%d, y=%d&quot;, a, y); // Monitoring output
+    $dumpvars(&quot;inverter.vcd&quot;);     // storing generated values in vsd file
+    $dumpvars(0, inverter);
+  end
+endmodule
+</code></pre><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="http://iverilog.icarus.com/">http://iverilog.icarus.com/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://github.com/Ikarthikmb/VerilogFod/blob/main/inverter/inverter.v">inverter gitbub code</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+      </article>
+    </section>
+
+    
+
+    
+    <article class="ui segment utterances-comments" data-html2canvas-ignore>
+      <script
+        src="https://utteranc.es/client.js"
+        repo="ikarthikmb/ikarthikmb.github.io"
+        issue-term="og:title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </article>
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 Karthik Mahendra</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/me.png" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">Karthik Mahendra<span class="sub header">One Million Dreams Aside, One Tiny Brave Heart Inside</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/posts">
+        <i class="archive icon" title="Archives"></i>
+      </a>
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/circuits/" title="circuits">
+              circuits
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/communications/" title="communications">
+              communications
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/computing/" title="computing">
+              computing
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/crypto/" title="crypto">
+              crypto
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/electronics/" title="electronics">
+              electronics
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/ethernet/" title="ethernet">
+              ethernet
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/gtkwave/" title="gtkwave">
+              gtkwave
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/howto/" title="howto">
+              howto
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/inverter/" title="inverter">
+              inverter
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/iverilog/" title="iverilog">
+              iverilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/latex/" title="latex">
+              latex
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/math/" title="math">
+              math
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/meme/" title="meme">
+              meme
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/microwaves/" title="microwaves">
+              microwaves
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/mindmaps/" title="mindmaps">
+              mindmaps
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/note/" title="note">
+              note
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/productivity/" title="productivity">
+              productivity
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/raspberry-pi/" title="raspberry pi">
+              raspberry pi
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/semiconductors/" title="semiconductors">
+              semiconductors
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/sensors/" title="sensors">
+              sensors
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/sirishortcuts/" title="sirishortcuts">
+              sirishortcuts
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/verilog/" title="verilog">
+              verilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/wallpaper/" title="wallpaper">
+              wallpaper
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/wifi/" title="wifi">
+              wifi
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">About Me</div>
+      <p>Hi, my name is Karthik Mahendra.</p>
+<p>Electronic circuit designer, curious of smart technology, wanderlust, intrigued with life-hacking.</p>
+<p>A self-learner, learn through practical experiences, enjoys the process underwent with overwhelming challenges. Spends spare time on capturing shots, enhancing them, also an amateur video editor.</p>
+
+    </article>
+  </div>
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">Social Links</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+  <div class="item">
+    <a href="mailto:karthikmb8@gmail.com">
+      <i class="large mail icon" title="Email"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://twitter.com/qrthik" target="_blank">
+      <i class="large twitter icon" title="Twitter"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+
+  
+
+  
+  <div class="item">
+    <a href="https://www.linkedin.com/in/karthik-mb" target="_blank">
+      <i class="large linkedin icon" title="Linkedin"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://github.com/ikarthikmb" target="_blank">
+      <i class="large github icon" title="GitHub"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="Search" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/ikarthikmb.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    <script>
+  window.defaultDark =  true 
+  window.backgroundDark = "black"
+  window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
+
+
+
+<script>
+  hljs.initHighlightingOnLoad()
+  setHighlightTheme()
+
+  function setHighlightTheme() {
+    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
+    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
+
+    var lightTheme = "gruvbox-light"
+    var darkTheme = "gruvbox-dark"
+    var theme = isDark === 'y' ? darkTheme : lightTheme
+
+    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
+    $('pre').css('background', isDark === 'y' ? '#333' : '')
+  }
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

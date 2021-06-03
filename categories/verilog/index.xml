@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>verilog on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/categories/verilog/</link>
+    <description>Recent content in verilog on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/categories/verilog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open Source Tools to Get Started With Verilog Simulation</title>
+      <link>https://ikarthikmb.github.io/posts/iverilog_guide/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/posts/iverilog_guide/</guid>
+      <description>In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.
+Icarus verilog is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the vvp command.</description>
+    </item>
+    
+  </channel>
+</rss>

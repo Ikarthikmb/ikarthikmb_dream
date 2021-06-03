@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Set up Raspberry Pi 4(Wi-Fi) | Karthik Mahendra</title>
+
+    
+
+
+
+<meta name="author" content="ikarthikmb" />
+<meta name="description" content="Karthik Mahendra" />
+
+
+
+<meta name="generator" content="Hugo 0.83.1" />
+
+<link rel="canonical" href="https://ikarthikmb.github.io/rpi4_setup_wifi/" />
+
+
+<meta property="og:title" content="Set up Raspberry Pi 4(Wi-Fi)" />
+<meta property="og:description" content="The set up for Raspberry Pi using Wi-Fi is the same as the previous article on how to Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Moniter, No Wi-Fi) with some minor changes which we are going to see.
+Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power supply Personal computer  Steps to install the required software tools  If you had followed the previous article then skip these steps and move to &lsquo;step-6&rsquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikarthikmb.github.io/rpi4_setup_wifi/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2020-05-24T01:59:33&#43;05:30" />
+<meta property="article:modified_time" content="2020-05-24T01:59:33&#43;05:30" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Set up Raspberry Pi 4(Wi-Fi)"/>
+<meta name="twitter:description" content="The set up for Raspberry Pi using Wi-Fi is the same as the previous article on how to Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Moniter, No Wi-Fi) with some minor changes which we are going to see.
+Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power supply Personal computer  Steps to install the required software tools  If you had followed the previous article then skip these steps and move to &lsquo;step-6&rsquo;."/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/site_bg/lightcirc.png);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: black;
+    
+
+    
+    background-image: url(/site_bg/darkcir.png);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = 'https:\/\/ikarthikmb.github.io\/'"></i>
+  </div>
+  
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+  
+  
+  <div class="item">
+    <i class="large link search icon" onclick="toggleSearch()"></i>
+  </div>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+  
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hardware-requirements">Hardware Requirements:</a></li>
+    <li><a href="#steps-to-install-the-required-software-tools">Steps to install the required software tools</a>
+      <ul>
+        <li><a href="#further-steps">Further Steps:</a></li>
+      </ul>
+    </li>
+    <li><a href="#accessing-pi-desktop-remotely">Accessing Pi Desktop Remotely</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Set up Raspberry Pi 4(Wi-Fi)<span class="sub header">
+            <span class="left">
+              @
+              
+                
+                  <a href="https://ikarthikmb.github.io" target="_blank">Karhtik Mahendra</a>
+                
+              
+
+              | 
+                  
+                    Sunday, May 24, 2020
+                  
+                
+
+              | 3 minutes read
+
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Set%20up%20Raspberry%20Pi%204%28Wi-Fi%29&url=https%3a%2f%2fikarthikmb.github.io%2frpi4_setup_wifi%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fikarthikmb.github.io%2frpi4_setup_wifi%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <p><img src="/posts/rpi_wifi/rpi_wifi_thumb.png" alt=""></p>
+<p>The set up for Raspberry Pi using Wi-Fi is the same as the previous article on how to Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Moniter, No Wi-Fi) with some minor changes which we are going to see.</p>
+<h2 id="hardware-requirements">Hardware Requirements:</h2>
+<ol>
+<li>Raspberry Pi 4 Model B (1/2/4 GB RAM)</li>
+<li>USB Type-C power supply</li>
+<li>Personal computer</li>
+</ol>
+<h2 id="steps-to-install-the-required-software-tools">Steps to install the required software tools</h2>
+<ol>
+<li>If you had followed the previous article then skip these steps and move to &lsquo;step-6&rsquo;. From the official raspberrypi.org download the Raspbian Buster operating system<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+</ol>
+<ol start="2">
+<li>Also, download the Raspberry Pi Imager from the website<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, this is for writing the image file onto the SD card.</li>
+</ol>
+<ol start="3">
+<li>If you are using windows you probably have to download the ssh client, I prefer downloading it from Bitvise ssh client from PuTTY.</li>
+</ol>
+<h3 id="further-steps">Further Steps:</h3>
+<ol start="4">
+<li>
+<p>To access the desktop of the pi, you can either connect a micro to HDMI connector from the pi to a monitor or you can access it remotely on your PC/laptop. To connect remotely VNC-server has to be installed onto the pi by default the VNC-server is installed within the operating system, in order to view it remotely one has to download VNC-viewer on his/her Desktop.</p>
+</li>
+<li>
+<p>Open the Raspberry Pi Imager and select the custom setup then select the OS from the Downloaded folder and carefully set the target as a USB drive. Wait for the image to be written on the card.</p>
+</li>
+<li>
+<p>After done, open the boot folder, create a new document named <strong>“ssh”</strong> without any extensions. Create another text file, enter the following configurations and save it as <code>wpa_supplicant.conf</code>. Dont forget to enter the country code and the wi-fi credentials.</p>
+</li>
+</ol>
+<pre><code>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=&lt;Insert country code here&gt;
+
+network={
+
+    ssid=&quot;testing&quot;
+    psk=&quot;testingPassword&quot;
+
+}
+</code></pre><ol start="7">
+<li>
+<p>Now power up the pi with the type-C cable and wait for a while for the pi to be connect to your Wi-Fi.</p>
+</li>
+<li>
+<p>Open Advanced IP Scanner and make a quick scan, identify the Raspberry Pi and note the IP address.</p>
+</li>
+<li>
+<p>Open the Bitvise SSH Client<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, enter <code>raspberrypi.local</code> or the IP address(from the previous step) as host and leave 22 as default port in the server section.</p>
+</li>
+</ol>
+<ol start="10">
+<li>
+<p>Click Log in and enter the username as pi and the default password as <strong>raspberry</strong>. A terminal pops up and you are now into the Raspberry Pi.</p>
+</li>
+<li>
+<p>If this is your first time logging into pi make sure to update your pi by issuing the command <code>sudo apt-get update</code> and then <code>sudo apt-get upgrade</code> to upgrade.</p>
+</li>
+</ol>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get upgrade
+</code></pre><blockquote>
+<p><strong>Quick tip:</strong> Don’t forget to change your password once you are logged in.</p>
+</blockquote>
+<h2 id="accessing-pi-desktop-remotely">Accessing Pi Desktop Remotely</h2>
+<ol start="12">
+<li>Go to <em>terminal</em> and type <code>vncserver</code>, notedown the generated <strong>ip address</strong>. Now open <em>VNC-Viewer</em><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> on your desktop and enter the <strong>ip address</strong> or paste it, after few seconds a window pops sharing the screen of raspberry pi desktop.</li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://www.raspberrypi.org/software/operating-systems/">Raspberry pi official website</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://www.raspberrypi.org/software/">Raspberry pi imager download</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://putty.org/">Bitvise SSH Client</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p><a href="https://www.realvnc.com/en/connect/download/viewer/">real-vnc-viewer official website</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+      </article>
+    </section>
+
+    
+
+    
+    <article class="ui segment utterances-comments" data-html2canvas-ignore>
+      <script
+        src="https://utteranc.es/client.js"
+        repo="ikarthikmb/ikarthikmb.github.io"
+        issue-term="og:title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </article>
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 Karthik Mahendra</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/me.png" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">Karthik Mahendra<span class="sub header">One Million Dreams Aside, One Tiny Brave Heart Inside</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/posts">
+        <i class="archive icon" title="Archives"></i>
+      </a>
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/ethernet/" title="ethernet">
+              ethernet
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/gtkwave/" title="gtkwave">
+              gtkwave
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/howto/" title="howto">
+              howto
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/inverter/" title="inverter">
+              inverter
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/iverilog/" title="iverilog">
+              iverilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/raspberry-pi/" title="raspberry pi">
+              raspberry pi
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/sirishortcuts/" title="sirishortcuts">
+              sirishortcuts
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/verilog/" title="verilog">
+              verilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/wifi/" title="wifi">
+              wifi
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">About Me</div>
+      <p>Hi, my name is Karthik Mahendra.</p>
+<p>Electronic circuit designer, curious of smart technology, wanderlust, intrigued with life hacking.</p>
+<p>A self-learner, learn through experiences, enjoys the process underwent with over whelming challenges. Spends spare time on capturing shots, enhancing them, also an amateur video editor.</p>
+
+    </article>
+  </div>
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">Social Links</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+  <div class="item">
+    <a href="mailto:karthikmb8@gmail.com">
+      <i class="large mail icon" title="Email"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://twitter.com/qrthik" target="_blank">
+      <i class="large twitter icon" title="Twitter"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+
+  
+
+  
+  <div class="item">
+    <a href="https://www.linkedin.com/in/karthik-mb" target="_blank">
+      <i class="large linkedin icon" title="Linkedin"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://github.com/ikarthikmb" target="_blank">
+      <i class="large github icon" title="GitHub"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="Search" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/ikarthikmb.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    <script>
+  window.defaultDark =  true 
+  window.backgroundDark = "black"
+  window.backgroundImageDark = "/site_bg/darkcir.png"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
+
+
+
+<script>
+  hljs.initHighlightingOnLoad()
+  setHighlightTheme()
+
+  function setHighlightTheme() {
+    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
+    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
+
+    var lightTheme = "gruvbox-light"
+    var darkTheme = "gruvbox-dark"
+    var theme = isDark === 'y' ? darkTheme : lightTheme
+
+    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
+    $('pre').css('background', isDark === 'y' ? '#333' : '')
+  }
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>
