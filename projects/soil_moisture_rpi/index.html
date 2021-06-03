@@ -7,6 +7,8 @@
     <title>Measuring Soil Moisture using Raspberry Pi | Karthik Mahendra</title>
 
     
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
 
 
 
@@ -89,10 +91,6 @@ In this project lets try to build a circuit which can measure the water content 
 
 
     
-
-
-
-<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
 
 
 
@@ -203,15 +201,12 @@ In this project lets try to build a circuit which can measure the water content 
 
       <article class="main">
         
-<<<<<<< HEAD
         <img class="cover" src="/projects/soil_moisture_rpi_fig/soil-moisture-circuit.jpg" />
         
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
         <p><strong>Contents</strong></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=true} -->
+<!-- code_chunk_output -->
 <ul>
 <li><a href="#hardware">Hardware:</a></li>
 <li><a href="#circuit-connection">Circuit Connection:</a>
@@ -222,7 +217,7 @@ In this project lets try to build a circuit which can measure the water content 
 <li><a href="#the-code">The Code</a></li>
 <li><a href="#youtube-video-tutorial">Youtube Video Tutorial:</a></li>
 </ul>
-<!-- raw HTML omitted -->
+<!-- /code_chunk_output -->
 <hr>
 <p>Do you know how often to water plants? Or outpoured plants and lost them. To solve this I thought it would be more circumstantial if we can get the value of water content inside the soil in order to make a decision for watering the plants appropriately.</p>
 <p>In this project lets try to build a circuit which can measure the water content value of the soil eventually control the flow using Raspberry Pi.</p>
@@ -234,7 +229,11 @@ In this project lets try to build a circuit which can measure the water content 
 <li>Jumpers</li>
 </ul>
 <h2 id="circuit-connection">Circuit Connection:</h2>
-<p><img src="/projects/soil_moisture_rpi_fig/soil-moisture-circuit.jpg" alt="Circuit diagram"></p>
+<figure><img src="/projects/soil_moisture_rpi_fig/soil-moisture-circuit.jpg"/><figcaption>
+            <h4>Circuit connections(figure) </h4>
+        </figcaption>
+</figure>
+
 <ol>
 <li>MCP3008 GND to GND</li>
 <li>MCP3008 CS to RPI 8</li>
@@ -251,34 +250,75 @@ In this project lets try to build a circuit which can measure the water content 
 <p>Make all the connections and power up the Raspberry Pi. If you want to learn how to connect a Raspberry Pi check out my previous post on how to <a href="https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/">Set Up Raspberry Pi 4 Through Laptop/pc Using Ethernet Cable(No Monitor, No Wi-Fi)</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <h3 id="essential-packages">Essential Packages</h3>
 <p>Before you run the code you have to install few libraries, move on with the following steps.</p>
-<pre><code>sudo apt-get update
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get update
 sudo apt-get install build-essential python-dev python-smbus git
-cd ~
+<span style="color:#8be9fd;font-style:italic">cd</span> ~
 git clone https://github.com/adafruit/Adafruit_Python_MCP3008.git
-cd Adafruit_Python_MCP3008
-sudo python setup.py install
-</code></pre><h2 id="the-code">The Code</h2>
+<span style="color:#8be9fd;font-style:italic">cd</span> Adafruit_Python_MCP3008
+sudo python setup.py install</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="the-code">The Code</h2>
 <p>Once the library has been installed it&rsquo;s time to execute the code. You can use the below code or download it from <a href="https://github.com/Ikarthikmb/Hardware-Codes/blob/master/RaspberryPi/moist-soil.py">here</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
-<pre><code>import RPi.GPIO as GPIO
-from time import sleep
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#ff79c6">import</span> RPi.GPIO <span style="color:#ff79c6">as</span> GPIO
+<span style="color:#ff79c6">from</span> time <span style="color:#ff79c6">import</span> sleep
 
-import Adafruit_MCP3008
+<span style="color:#ff79c6">import</span> Adafruit_MCP3008
 
-am = Adafruit_MCP3008.MCP3008(clk = 11, cs = 8, miso = 9, mosi = 10)
+am <span style="color:#ff79c6">=</span> Adafruit_MCP3008<span style="color:#ff79c6">.</span>MCP3008(clk <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">11</span>, cs <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">8</span>, miso <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">9</span>, mosi <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>)
 
-while True:
-  moisture_value = am.read_adc(0)
-  per = moisture_value * 100 / 1023
-  print(&quot;Recorded moisture value is %s percentage&quot; % per)
-  if moisture_value &gt;= 930:
-    print(&quot; No water, Can you plaease water me&quot;)
-  elif moisture_value &lt; 930 and moisture_value &gt;= 350:
-    print(&quot; I'm sufficient &quot;)
-  elif moisture_value &lt; 350 :
-    print(&quot; Stop drowning me!&quot;)
-  sleep(1.5)
-</code></pre><h2 id="youtube-video-tutorial">Youtube Video Tutorial:</h2>
-<p><a href="https://youtu.be/ahQhEWf1PRI" title="Click to play"><img src="/projects/soil_moisture_rpi_fig/soilmoisture_youtubethumb.png" alt=""></a><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<span style="color:#ff79c6">while</span> True:
+  moisture_value <span style="color:#ff79c6">=</span> am<span style="color:#ff79c6">.</span>read_adc(<span style="color:#bd93f9">0</span>)
+  per <span style="color:#ff79c6">=</span> moisture_value <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">100</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">1023</span>
+  <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;Recorded moisture value is </span><span style="color:#f1fa8c">%s</span><span style="color:#f1fa8c"> percentage&#34;</span> <span style="color:#ff79c6">%</span> per)
+  <span style="color:#ff79c6">if</span> moisture_value <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">930</span>:
+    <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34; No water, Can you plaease water me&#34;</span>)
+  <span style="color:#ff79c6">elif</span> moisture_value <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">930</span> <span style="color:#ff79c6">and</span> moisture_value <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">350</span>:
+    <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34; I&#39;m sufficient &#34;</span>)
+  <span style="color:#ff79c6">elif</span> moisture_value <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">350</span> :
+    <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34; Stop drowning me!&#34;</span>)
+  sleep(<span style="color:#bd93f9">1.5</span>)</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="youtube-video-tutorial">Youtube Video Tutorial:</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/ahQhEWf1PRI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- [![](/projects/soil_moisture_rpi_fig/soilmoisture_youtubethumb.png)](https://youtu.be/ahQhEWf1PRI "Click to play")[^3] -->
 <p>You can rewrite the code and change the parameters for your requirements. If you have suggestions or any trouble with the project, feel free to comment below. Happy Circuiting!</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -288,9 +328,6 @@ while True:
 </li>
 <li id="fn:2" role="doc-endnote">
 <p><a href="https://github.com/Ikarthikmb/Hardware-Codes/blob/master/RaspberryPi/moist-soil.py">https://github.com/Ikarthikmb/Hardware-Codes/blob/master/RaspberryPi/moist-soil.py</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:3" role="doc-endnote">
-<p><a href="https://youtu.be/ahQhEWf1PRI">https://youtu.be/ahQhEWf1PRI</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -414,8 +451,18 @@ while True:
     
 
     
+
     
     
+
+    <div class="tags-with-dropdown">
+      <div class="ui accordion">
+        <div class="title">
+          <div class="ui horizontal list">
+            <a class="item dropdown" href="#">
+              <i class="chevron right icon dropdown-icon"></i>
+            </a>
+          </div>
           <div class="dream-tags">
           
           
@@ -489,6 +536,12 @@ while True:
             <a class="ui label" href="/tags/math/" title="math">
               math
             </a>
+          
+          </div>
+        </div>
+        <div class="content">
+    
+          <div class="dream-tags" style="margin-left: 1.5rem;">
           
           
           
@@ -564,6 +617,10 @@ while True:
           
           </div>
     
+        </div>
+      </div>
+    </div>
+    
 
     
   </div>
@@ -590,15 +647,12 @@ while True:
       <div class="ui medium header">Social Links</div>
       <nav class="ui secondary menu dream-menu dream-socials">
   
-<<<<<<< HEAD
   <div class="item">
     <a href="/index.xml">
       <i class="large rss square icon" title="RSS"></i>
     </a>
   </div>
   
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   
   <div class="item">
@@ -692,12 +746,8 @@ while True:
   window.backgroundDark = "black"
   window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
   window.darkNav =  true 
-  window.maxTags =  null 
-<<<<<<< HEAD
+  window.maxTags =  12 
   window.hasTwitterEmbed =  true 
-=======
-  window.hasTwitterEmbed =  null 
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   if (window.hasTwitterEmbed) {
     
@@ -728,32 +778,6 @@ while True:
     
 
 
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
-
-
-
-<script>
-  hljs.initHighlightingOnLoad()
-  setHighlightTheme()
-
-  function setHighlightTheme() {
-    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
-    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
-
-    var lightTheme = "gruvbox-light"
-    var darkTheme = "gruvbox-dark"
-    var theme = isDark === 'y' ? darkTheme : lightTheme
-
-    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
-    $('pre').css('background', isDark === 'y' ? '#333' : '')
-  }
-</script>
 
 
 

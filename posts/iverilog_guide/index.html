@@ -7,6 +7,8 @@
     <title>Open Source Tools to Get Started With Verilog Simulation | Karthik Mahendra</title>
 
     
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
 
 
 
@@ -88,10 +90,6 @@ Icarus verilog is a open-source verilog simulation and synthesis tool. It operat
 
 
     
-
-
-
-<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
 
 
 
@@ -202,113 +200,258 @@ Icarus verilog is a open-source verilog simulation and synthesis tool. It operat
 
       <article class="main">
         
-<<<<<<< HEAD
         <img class="cover" src="/posts/iverilog_guide/inverter_thumb_terminal.jpg" />
         
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
-        <p><img src="/posts/iverilog_guide/iverilog_thumb_pdf.png" alt=""></p>
+        <!-- ![](/posts/iverilog_guide/iverilog_thumb_pdf.png) -->
 <p>In this post, I shall be demonstrating how to use open-source tools that include icarus verilog which is used for compiling verilog code and, gtk wave for observing timing diagrams.</p>
 <p><strong>Icarus verilog</strong> is a open-source verilog simulation and synthesis tool. It operates as a compiler, compiling source code written in Verilog (IEEE-1364) into some target format. For batch simulation, the compiler can generate an intermediate form called vvp assembly. This intermediate form is executed by the <code>vvp</code> command. For synthesis, the compiler generates netlists in the desired format. (source:  icarus verilog<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>)</p>
 <h1 id="setup">Setup</h1>
 <h2 id="steps-to-install-icarus-verilog-and-gtkwave">Steps to Install Icarus Verilog and GTKWave</h2>
 <p>Open the terminal and follow through the steps for the installtion of icarus verilog and gtkwave. Initially <code>team-electronics</code> package has to be added to the current packages. Do</p>
-<pre><code>sudo add-apt-repository ppa:team-electronics/ppa
-</code></pre><p>You will get no message, which means the package has successfully added. Now update the local repository by</p>
-<pre><code>sudo apt-get update
-</code></pre><p>Then install the Icarus verilog package</p>
-<pre><code>sudo apt-get install iverilog
-</code></pre><p>and the gtkwave package which is used to view the timing diagrams for your verilog code.</p>
-<pre><code>sudo apt-get install gtkwave
-</code></pre><h2 id="edit-and-run-the-code-with-icarus-verilog">Edit and Run the code with Icarus Verilog</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo add-apt-repository ppa:team-electronics/ppa
+</code></pre></td></tr></table>
+</div>
+</div><p>You will get no message, which means the package has successfully added. Now update the local repository by</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo apt-get update
+</code></pre></td></tr></table>
+</div>
+</div><p>Then install the Icarus verilog package</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo apt-get install iverilog
+</code></pre></td></tr></table>
+</div>
+</div><p>and the gtkwave package which is used to view the timing diagrams for your verilog code.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo apt-get install gtkwave
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="edit-and-run-the-code-with-icarus-verilog">Edit and Run the code with Icarus Verilog</h2>
 <p><strong>Step-1:</strong> Write a verilog code</p>
-<pre><code>$ gedit hello1.v
-</code></pre><p><strong>Step-2:</strong> Compiling a verilog code with icarus verilog</p>
-<pre><code>$ iverilog hello1.v
-</code></pre><p><strong>Step-3:</strong> run the code</p>
-<pre><code>$ vvp a.out
-</code></pre><h1 id="example">Example</h1>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ gedit hello1.v
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Step-2:</strong> Compiling a verilog code with icarus verilog</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ iverilog hello1.v
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Step-3:</strong> run the code</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ vvp a.out
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="example">Example</h1>
 <h2 id="writing-verilog-for-an-inverter">Writing Verilog for an Inverter</h2>
 <ul>
 <li>An inverter is a circuit which inverts(reverses) the input signal. Now, lets build a 1 bit inverter and compile it with icarus verilog.</li>
 <li>Lets define the inverter module first, to do so</li>
 </ul>
-<pre><code>module inverter();
-</code></pre><ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v"><span style="color:#ff79c6">module</span> inverter();</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
 <li>It has two ports one for input and the other for output, let us define them as follows:</li>
 </ul>
-<pre><code>module inverter(
-  input   a,
-  output  y
-);
-</code></pre><ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v"><span style="color:#ff79c6">module</span> inverter(
+  <span style="color:#ff79c6">input</span>   a,
+  <span style="color:#ff79c6">output</span>  y
+);</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
 <li>Then assign the value for output and end the module.</li>
 </ul>
-<pre><code>module inverter(
-  input   a,
-  output  y
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v"><span style="color:#ff79c6">module</span> inverter(
+  <span style="color:#ff79c6">input</span>   a,
+  <span style="color:#ff79c6">output</span>  y
 );
-  assign y = ~a;
-endmodule
-</code></pre><h2 id="writing-testbench-for-the-inverter">Writing Testbench for the Inverter</h2>
+  <span style="color:#ff79c6">assign</span> y <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">~</span>a;
+<span style="color:#ff79c6">endmodule</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="writing-testbench-for-the-inverter">Writing Testbench for the Inverter</h2>
 <ul>
 <li>Along with the main testbench code an additional <code>$dumpfile</code> to write the values into a <code>.vcd</code> file and, <code>$dumpvars</code> has to be defined. The testbench code is shown below.</li>
 </ul>
-<pre><code class="language-{.numberLines}" data-lang="{.numberLines}">module inverter_tb();
-  wire y;
-  reg  a = 0;
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v"><span style="color:#ff79c6">module</span> inverter_tb();
+  <span style="color:#8be9fd">wire</span> y;
+  <span style="color:#8be9fd">reg</span>  a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
 
-  always begin
-    #10 a = ~a;
-  end
+  <span style="color:#ff79c6">always</span> <span style="color:#ff79c6">begin</span>
+    #<span style="color:#bd93f9">10</span> a <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">~</span>a;
+  <span style="color:#ff79c6">end</span>
 
-  initial begin
-    $monitor(&quot;a=%d, y=%d&quot;, a, y);
-    $dumpvars(&quot;inverter.vcd&quot;);
-    $dumpvars(0, inverter);
-  end
-endmodule
-</code></pre><h2 id="compiling-verilog-code">Compiling Verilog Code</h2>
+  <span style="color:#ff79c6">initial</span> <span style="color:#ff79c6">begin</span>
+    <span style="color:#8be9fd;font-style:italic">$monitor</span>(<span style="color:#f1fa8c">&#34;a=%d, y=%d&#34;</span>, a, y);
+    $dumpvars(<span style="color:#f1fa8c">&#34;inverter.vcd&#34;</span>);
+    $dumpvars(<span style="color:#bd93f9">0</span>, inverter);
+  <span style="color:#ff79c6">end</span>
+<span style="color:#ff79c6">endmodule</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="compiling-verilog-code">Compiling Verilog Code</h2>
 <p>As mentioned in the start of the article, open the terminal and type the following line. If it prompts nothing with an immediate next line, the codeis fine, else recheck the code for errors and compile back again.</p>
-<pre><code>$ iverilog inverter.v
-</code></pre><ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v">$ iverilog inverter.v</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
 <li>For output wave</li>
 </ul>
-<pre><code>$ vvp a.out
-</code></pre><ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v">$ vvp a.out</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
 <li>Finally, use gtkwave to to see the timing waveform for the generated <code>.vcd</code> file.</li>
 </ul>
-<pre><code>$ gtkwave inverter.v
-</code></pre><p><strong>Conclusion:</strong> In this post we learnt to use the open source tool for compiling and visualizing verilog code using icarus verilog and gtkwave respectively.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v">$ gtkwave inverter.v</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Conclusion:</strong> In this post we learnt to use the open source tool for compiling and visualizing verilog code using icarus verilog and gtkwave respectively.</p>
 <h1 id="code">Code</h1>
 <ul>
 <li>Use the below code or download it from github here<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</li>
 </ul>
-<pre><code>// Module initialization
-module inverter(
-  input   a,      // input declaration
-  output  y       // output declaration
-);
-  assign y = ~a;  // Assigning output value
-endmodule
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-v" data-lang="v"><span style="color:#6272a4">// Module initialization
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">module</span> inverter(
+  <span style="color:#ff79c6">input</span>   a,      <span style="color:#6272a4">// input declaration
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">output</span>  y       <span style="color:#6272a4">// output declaration
+</span><span style="color:#6272a4"></span>);
+  <span style="color:#ff79c6">assign</span> y <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">~</span>a;  <span style="color:#6272a4">// Assigning output value
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">endmodule</span>
 
-// Testbench declaration
-module inverter_tb();
-  wire y;
-  reg  a = 0;
+<span style="color:#6272a4">// Testbench declaration
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">module</span> inverter_tb();
+  <span style="color:#8be9fd">wire</span> y;
+  <span style="color:#8be9fd">reg</span>  a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
 
-  always begin
-    #10 a = ~a;   // assigning a = NOT a for every 10ns
-  end
+  <span style="color:#ff79c6">always</span> <span style="color:#ff79c6">begin</span>
+    #<span style="color:#bd93f9">10</span> a <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">~</span>a;   <span style="color:#6272a4">// assigning a = NOT a for every 10ns
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">end</span>
 
-  initial begin
-    $monitor(&quot;a=%d, y=%d&quot;, a, y); // Monitoring output
-    $dumpvars(&quot;inverter.vcd&quot;);     // storing generated values in vsd file
-    $dumpvars(0, inverter);
-  end
-endmodule
-</code></pre><section class="footnotes" role="doc-endnotes">
+  <span style="color:#ff79c6">initial</span> <span style="color:#ff79c6">begin</span>
+    <span style="color:#8be9fd;font-style:italic">$monitor</span>(<span style="color:#f1fa8c">&#34;a=%d, y=%d&#34;</span>, a, y); <span style="color:#6272a4">// Monitoring output
+</span><span style="color:#6272a4"></span>    $dumpvars(<span style="color:#f1fa8c">&#34;inverter.vcd&#34;</span>);     <span style="color:#6272a4">// storing generated values in vsd file
+</span><span style="color:#6272a4"></span>    $dumpvars(<span style="color:#bd93f9">0</span>, inverter);
+  <span style="color:#ff79c6">end</span>
+<span style="color:#ff79c6">endmodule</span></code></pre></td></tr></table>
+</div>
+</div>
+<section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
@@ -439,8 +582,18 @@ endmodule
     
 
     
+
     
     
+
+    <div class="tags-with-dropdown">
+      <div class="ui accordion">
+        <div class="title">
+          <div class="ui horizontal list">
+            <a class="item dropdown" href="#">
+              <i class="chevron right icon dropdown-icon"></i>
+            </a>
+          </div>
           <div class="dream-tags">
           
           
@@ -514,6 +667,12 @@ endmodule
             <a class="ui label" href="/tags/math/" title="math">
               math
             </a>
+          
+          </div>
+        </div>
+        <div class="content">
+    
+          <div class="dream-tags" style="margin-left: 1.5rem;">
           
           
           
@@ -589,6 +748,10 @@ endmodule
           
           </div>
     
+        </div>
+      </div>
+    </div>
+    
 
     
   </div>
@@ -615,15 +778,12 @@ endmodule
       <div class="ui medium header">Social Links</div>
       <nav class="ui secondary menu dream-menu dream-socials">
   
-<<<<<<< HEAD
   <div class="item">
     <a href="/index.xml">
       <i class="large rss square icon" title="RSS"></i>
     </a>
   </div>
   
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   
   <div class="item">
@@ -716,12 +876,8 @@ endmodule
   window.backgroundDark = "black"
   window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
   window.darkNav =  true 
-  window.maxTags =  null 
-<<<<<<< HEAD
+  window.maxTags =  12 
   window.hasTwitterEmbed =  true 
-=======
-  window.hasTwitterEmbed =  null 
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   if (window.hasTwitterEmbed) {
     
@@ -752,32 +908,6 @@ endmodule
     
 
 
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
-
-
-
-<script>
-  hljs.initHighlightingOnLoad()
-  setHighlightTheme()
-
-  function setHighlightTheme() {
-    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
-    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
-
-    var lightTheme = "gruvbox-light"
-    var darkTheme = "gruvbox-dark"
-    var theme = isDark === 'y' ? darkTheme : lightTheme
-
-    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
-    $('pre').css('background', isDark === 'y' ? '#333' : '')
-  }
-</script>
 
 
 

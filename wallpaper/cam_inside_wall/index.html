@@ -7,6 +7,8 @@
     <title>Top Shot of a Webcam Lens | Karthik Mahendra</title>
 
     
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
 
 
 
@@ -85,10 +87,6 @@
 
 
     
-
-
-
-<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
 
 
 
@@ -180,13 +178,10 @@
 
       <article class="main">
         
-<<<<<<< HEAD
         <img class="cover" src="/ewallpaper/cam_inside.jpg" />
         
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
-        <p><img src="/ewallpaper/cam_inside.jpg" alt=""></p>
+        <!-- ![](/ewallpaper/cam_inside.jpg) -->
 
       </article>
     </section>
@@ -307,8 +302,18 @@
     
 
     
+
     
     
+
+    <div class="tags-with-dropdown">
+      <div class="ui accordion">
+        <div class="title">
+          <div class="ui horizontal list">
+            <a class="item dropdown" href="#">
+              <i class="chevron right icon dropdown-icon"></i>
+            </a>
+          </div>
           <div class="dream-tags">
           
           
@@ -382,6 +387,12 @@
             <a class="ui label" href="/tags/math/" title="math">
               math
             </a>
+          
+          </div>
+        </div>
+        <div class="content">
+    
+          <div class="dream-tags" style="margin-left: 1.5rem;">
           
           
           
@@ -457,6 +468,10 @@
           
           </div>
     
+        </div>
+      </div>
+    </div>
+    
 
     
   </div>
@@ -483,15 +498,12 @@
       <div class="ui medium header">Social Links</div>
       <nav class="ui secondary menu dream-menu dream-socials">
   
-<<<<<<< HEAD
   <div class="item">
     <a href="/index.xml">
       <i class="large rss square icon" title="RSS"></i>
     </a>
   </div>
   
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   
   <div class="item">
@@ -585,12 +597,8 @@
   window.backgroundDark = "black"
   window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
   window.darkNav =  true 
-  window.maxTags =  null 
-<<<<<<< HEAD
+  window.maxTags =  12 
   window.hasTwitterEmbed =  true 
-=======
-  window.hasTwitterEmbed =  null 
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   if (window.hasTwitterEmbed) {
     
@@ -621,32 +629,6 @@
     
 
 
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
-
-
-
-<script>
-  hljs.initHighlightingOnLoad()
-  setHighlightTheme()
-
-  function setHighlightTheme() {
-    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
-    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
-
-    var lightTheme = "gruvbox-light"
-    var darkTheme = "gruvbox-dark"
-    var theme = isDark === 'y' ? darkTheme : lightTheme
-
-    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
-    $('pre').css('background', isDark === 'y' ? '#333' : '')
-  }
-</script>
 
 
 

@@ -7,6 +7,8 @@
     <title>Intruder Detection Using Pi Camera | Karthik Mahendra</title>
 
     
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
 
 
 
@@ -91,10 +93,6 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
 
 
     
-
-
-
-<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
 
 
 
@@ -201,22 +199,19 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
 
       <article class="main">
         
-<<<<<<< HEAD
         <img class="cover" src="/projects/intruder_rpi/circuit_intruder_rpi.png" />
         
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
         <p><strong>Contents</strong></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=true} -->
+<!-- code_chunk_output -->
 <ul>
 <li><a href="#hardware">Hardware</a></li>
 <li><a href="#circuit-connection">Circuit Connection</a></li>
 <li><a href="#the-code">The Code</a></li>
 <li><a href="#youtube-video-tutorial">Youtube Video Tutorial:</a></li>
 </ul>
-<!-- raw HTML omitted -->
+<!-- /code_chunk_output -->
 <hr>
 <p>This project is about capturing the pictures of strangers through the Pi Camera attached to Raspberry Pi. This is a DIY project which can detect people using the motion sensor(PIR sensor) by capturing a photo whenever the motion is detected.</p>
 <h2 id="hardware">Hardware</h2>
@@ -230,52 +225,91 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
 <p><img src="/projects/intruder_rpi/circuit_intruder_rpi.png" alt="Connecting PIR sensor to Raspberry Pi 3" title="Connecting PIR sensor to Raspberry Pi"></p>
 <p><a href="https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/eb7defb950e2f3eeb8aa5934d26cfd600860c8a0/en/images/connect-camera.gif"><img src="/projects/intruder_rpi/connect-picamera-rpi.gif" alt="Connecting Pi Camera to Raspberry Pi, Source: raspberrypi.org"></a></p>
 <p>Connect the PIR sensor to raspberry pi as shown in the above circuit diagram. Additionally connect the Pi Cam to Raspberry Pi camera port. To check whether your camera is working or not <strong>run</strong> the following code.</p>
-<pre><code>   raspistill -o Desktop/image.jpg
-</code></pre>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">raspistill <span style="color:#ff79c6">-</span>o Desktop<span style="color:#ff79c6">/</span>image<span style="color:#ff79c6">.</span>jpg</code></pre></td></tr></table>
+</div>
+</div>
 <p>Apparantly, you should  see the <code>image</code> saved on your Desktop, if not make sure you connected the camera properly and <strong>restart</strong> the device.</p>
 <h2 id="the-code">The Code</h2>
 <p>Save the below code as <code>pir-camera-test.py</code> and run.</p>
-<pre><code>   #Code for Capturing Strangers:
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">   <span style="color:#6272a4">#Code for Capturing Strangers:</span>
 
-   from gpiozero import MotionSensor
-   from picamera import PiCamera
-   import RPi.GPIO as GPIO
-   import time
+   <span style="color:#ff79c6">from</span> gpiozero <span style="color:#ff79c6">import</span> MotionSensor
+   <span style="color:#ff79c6">from</span> picamera <span style="color:#ff79c6">import</span> PiCamera
+   <span style="color:#ff79c6">import</span> RPi.GPIO <span style="color:#ff79c6">as</span> GPIO
+   <span style="color:#ff79c6">import</span> time
 
-   GPIO.setmode(GPIO.BCM)
-   GPIO.setwarnings(False)
+   GPIO<span style="color:#ff79c6">.</span>setmode(GPIO<span style="color:#ff79c6">.</span>BCM)
+   GPIO<span style="color:#ff79c6">.</span>setwarnings(False)
 
-   pir=MotionSensor(23)
-   camera=PiCamera()
-   camera.rotation = 180
-   camera.start_preview()
+   pir<span style="color:#ff79c6">=</span>MotionSensor(<span style="color:#bd93f9">23</span>)
+   camera<span style="color:#ff79c6">=</span>PiCamera()
+   camera<span style="color:#ff79c6">.</span>rotation <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">180</span>
+   camera<span style="color:#ff79c6">.</span>start_preview()
 
-   while True:
-    GPIO.setup(24, GPIO.OUT)
-    if pir.wait_for_motion():
-        GPIO.output(24, GPIO.HIGH)
-        #time.sleep(0.1)
-        print(&quot;Motion Detected&quot;)
-        camera.capture('/home/pi/Marvel/PiCam/PiImage/Strangers/image-'+ time.ctime()+'.png')
-         print(&quot;image-&quot;+time.ctime())
-         GPIO.output(24, GPIO.LOW)
+   <span style="color:#ff79c6">while</span> True:
+    GPIO<span style="color:#ff79c6">.</span>setup(<span style="color:#bd93f9">24</span>, GPIO<span style="color:#ff79c6">.</span>OUT)
+    <span style="color:#ff79c6">if</span> pir<span style="color:#ff79c6">.</span>wait_for_motion():
+        GPIO<span style="color:#ff79c6">.</span>output(<span style="color:#bd93f9">24</span>, GPIO<span style="color:#ff79c6">.</span>HIGH)
+        <span style="color:#6272a4">#time.sleep(0.1)</span>
+        <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;Motion Detected&#34;</span>)
+        camera<span style="color:#ff79c6">.</span>capture(<span style="color:#f1fa8c">&#39;/home/pi/Marvel/PiCam/PiImage/Strangers/image-&#39;</span><span style="color:#ff79c6">+</span> time<span style="color:#ff79c6">.</span>ctime()<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#39;.png&#39;</span>)
+         <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;image-&#34;</span><span style="color:#ff79c6">+</span>time<span style="color:#ff79c6">.</span>ctime())
+         GPIO<span style="color:#ff79c6">.</span>output(<span style="color:#bd93f9">24</span>, GPIO<span style="color:#ff79c6">.</span>LOW)
 
-    else:
-        print(&quot;Motion not Detected&quot;)
-    time.sleep(3)
-   camera.stop_preview()
-   camera.close()
-</code></pre><h2 id="youtube-video-tutorial">Youtube Video Tutorial:</h2>
-<p><a href="https://youtu.be/Nw-yHMn69R0?t=47" title="Click to play"><img src="/projects/intruder_rpi/intruder_ytthumb.png" alt="Youtube Tutorial Video"></a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+    <span style="color:#ff79c6">else</span>:
+        <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;Motion not Detected&#34;</span>)
+    time<span style="color:#ff79c6">.</span>sleep(<span style="color:#bd93f9">3</span>)
+   camera<span style="color:#ff79c6">.</span>stop_preview()
+   camera<span style="color:#ff79c6">.</span>close()</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="youtube-video-tutorial">Youtube Video Tutorial:</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Nw-yHMn69R0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- [![Youtube Tutorial Video](/projects/intruder_rpi/intruder_ytthumb.png)](https://youtu.be/Nw-yHMn69R0?t=47 "Click to play")[^1] -->
 <p>You can rewrite the code and change the parameters for your requirements. If you have suggestions or any trouble with the project, feel free to comment below. Happy Circuiting!</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://youtu.be/Nw-yHMn69R0?t=47">https://youtu.be/Nw-yHMn69R0?t=47</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
 
       </article>
     </section>
@@ -396,8 +430,18 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
     
 
     
+
     
     
+
+    <div class="tags-with-dropdown">
+      <div class="ui accordion">
+        <div class="title">
+          <div class="ui horizontal list">
+            <a class="item dropdown" href="#">
+              <i class="chevron right icon dropdown-icon"></i>
+            </a>
+          </div>
           <div class="dream-tags">
           
           
@@ -471,6 +515,12 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
             <a class="ui label" href="/tags/math/" title="math">
               math
             </a>
+          
+          </div>
+        </div>
+        <div class="content">
+    
+          <div class="dream-tags" style="margin-left: 1.5rem;">
           
           
           
@@ -546,6 +596,10 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
           
           </div>
     
+        </div>
+      </div>
+    </div>
+    
 
     
   </div>
@@ -572,15 +626,12 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
       <div class="ui medium header">Social Links</div>
       <nav class="ui secondary menu dream-menu dream-socials">
   
-<<<<<<< HEAD
   <div class="item">
     <a href="/index.xml">
       <i class="large rss square icon" title="RSS"></i>
     </a>
   </div>
   
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   
   <div class="item">
@@ -674,12 +725,8 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
   window.backgroundDark = "black"
   window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
   window.darkNav =  true 
-  window.maxTags =  null 
-<<<<<<< HEAD
+  window.maxTags =  12 
   window.hasTwitterEmbed =  true 
-=======
-  window.hasTwitterEmbed =  null 
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   if (window.hasTwitterEmbed) {
     
@@ -710,32 +757,6 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
     
 
 
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
-
-
-
-<script>
-  hljs.initHighlightingOnLoad()
-  setHighlightTheme()
-
-  function setHighlightTheme() {
-    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
-    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
-
-    var lightTheme = "gruvbox-light"
-    var darkTheme = "gruvbox-dark"
-    var theme = isDark === 'y' ? darkTheme : lightTheme
-
-    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
-    $('pre').css('background', isDark === 'y' ? '#333' : '')
-  }
-</script>
 
 
 

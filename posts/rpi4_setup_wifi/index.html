@@ -7,6 +7,8 @@
     <title>Set up Raspberry Pi 4(Wi-Fi) | Karthik Mahendra</title>
 
     
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
 
 
 
@@ -91,10 +93,6 @@ Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power s
 
 
     
-
-
-
-<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
 
 
 
@@ -204,16 +202,13 @@ Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power s
 
       <article class="main">
         
-<<<<<<< HEAD
         <img class="cover" src="/posts/rpi_ethernet/rpi_thumb02_square.jpg" />
         
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
-        <p><img src="/posts/rpi_ethernet/rpi_thumb02.jpg" alt=""></p>
+        <!-- ![](/posts/rpi_ethernet/rpi_thumb02.jpg) -->
 <p><strong>Contents</strong></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=true} -->
+<!-- code_chunk_output -->
 <ul>
 <li><a href="#hardware-requirements">Hardware Requirements:</a></li>
 <li><a href="#steps-to-install-the-required-software-tools">Steps to install the required software tools</a>
@@ -223,7 +218,7 @@ Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power s
 </li>
 <li><a href="#accessing-pi-desktop-remotely">Accessing Pi Desktop Remotely</a></li>
 </ul>
-<!-- raw HTML omitted -->
+<!-- /code_chunk_output -->
 <hr>
 <p>The set up for Raspberry Pi using Wi-Fi is the same as the previous article on how to Set Up Raspberry Pi 4 through laptop/pc using Ethernet cable(No Moniter, No Wi-Fi) with some minor changes which we are going to see.</p>
 <h2 id="hardware-requirements">Hardware Requirements:</h2>
@@ -254,17 +249,33 @@ Hardware Requirements:  Raspberry Pi 4 Model B (1/2/4 GB RAM) USB Type-C power s
 <p>After done, open the boot folder, create a new document named <strong>“ssh”</strong> without any extensions. Create another text file, enter the following configurations and save it as <code>wpa_supplicant.conf</code>. Dont forget to enter the country code and the wi-fi credentials.</p>
 </li>
 </ol>
-<pre><code>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 country=&lt;Insert country code here&gt;
 
 network={
 
-    ssid=&quot;testing&quot;
-    psk=&quot;testingPassword&quot;
+    ssid=&#34;testing&#34;
+    psk=&#34;testingPassword&#34;
 
 }
-</code></pre><ol start="7">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="7">
 <li>
 <p>Now power up the pi with the type-C cable and wait for a while for the pi to be connect to your Wi-Fi.</p>
 </li>
@@ -283,9 +294,17 @@ network={
 <p>If this is your first time logging into pi make sure to update your pi by issuing the command <code>sudo apt-get update</code> and then <code>sudo apt-get upgrade</code> to upgrade.</p>
 </li>
 </ol>
-<pre><code>$ sudo apt-get update
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ sudo apt-get update
 $ sudo apt-get upgrade
-</code></pre><blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><strong>Quick tip:</strong> Don’t forget to change your password once you are logged in.</p>
 </blockquote>
 <h2 id="accessing-pi-desktop-remotely">Accessing Pi Desktop Remotely</h2>
@@ -429,8 +448,18 @@ $ sudo apt-get upgrade
     
 
     
+
     
     
+
+    <div class="tags-with-dropdown">
+      <div class="ui accordion">
+        <div class="title">
+          <div class="ui horizontal list">
+            <a class="item dropdown" href="#">
+              <i class="chevron right icon dropdown-icon"></i>
+            </a>
+          </div>
           <div class="dream-tags">
           
           
@@ -504,6 +533,12 @@ $ sudo apt-get upgrade
             <a class="ui label" href="/tags/math/" title="math">
               math
             </a>
+          
+          </div>
+        </div>
+        <div class="content">
+    
+          <div class="dream-tags" style="margin-left: 1.5rem;">
           
           
           
@@ -579,6 +614,10 @@ $ sudo apt-get upgrade
           
           </div>
     
+        </div>
+      </div>
+    </div>
+    
 
     
   </div>
@@ -605,15 +644,12 @@ $ sudo apt-get upgrade
       <div class="ui medium header">Social Links</div>
       <nav class="ui secondary menu dream-menu dream-socials">
   
-<<<<<<< HEAD
   <div class="item">
     <a href="/index.xml">
       <i class="large rss square icon" title="RSS"></i>
     </a>
   </div>
   
-=======
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   
   <div class="item">
@@ -706,12 +742,8 @@ $ sudo apt-get upgrade
   window.backgroundDark = "black"
   window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
   window.darkNav =  true 
-  window.maxTags =  null 
-<<<<<<< HEAD
+  window.maxTags =  12 
   window.hasTwitterEmbed =  true 
-=======
-  window.hasTwitterEmbed =  null 
->>>>>>> 678d401b30a9a52c1ed59cdc50695a9c300871bb
 
   if (window.hasTwitterEmbed) {
     
@@ -742,32 +774,6 @@ $ sudo apt-get upgrade
     
 
 
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
-
-
-
-<script>
-  hljs.initHighlightingOnLoad()
-  setHighlightTheme()
-
-  function setHighlightTheme() {
-    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
-    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
-
-    var lightTheme = "gruvbox-light"
-    var darkTheme = "gruvbox-dark"
-    var theme = isDark === 'y' ? darkTheme : lightTheme
-
-    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
-    $('pre').css('background', isDark === 'y' ? '#333' : '')
-  }
-</script>
 
 
 
