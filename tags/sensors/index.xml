@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sensors on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/tags/sensors/</link>
+    <description>Recent content in sensors on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/tags/sensors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intruder Detection Using Pi Camera</title>
+      <link>https://ikarthikmb.github.io/projects/ultrasonic_rpi/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/projects/ultrasonic_rpi/</guid>
+      <description>Contents
+ Hardware Circuit Connection The Code Youtube Video Tutorial:   This project is about capturing the pictures of strangers through the Pi Camera attached to Raspberry Pi. This is a DIY project which can detect people using the motion sensor(PIR sensor) by capturing a photo whenever the motion is detected.
+Hardware  Raspberry Pi 2/3/4 Pi Camera PIR Sensor Jumpers  Circuit Connection 
+Connect the PIR sensor to raspberry pi as shown in the above circuit diagram.</description>
+    </item>
+    
+    <item>
+      <title>Measuring Soil Moisture using Raspberry Pi</title>
+      <link>https://ikarthikmb.github.io/projects/soil_moisture_rpi/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/projects/soil_moisture_rpi/</guid>
+      <description>Contents
+ Hardware: Circuit Connection:  Essential Packages   The Code Youtube Video Tutorial:   Do you know how often to water plants? Or outpoured plants and lost them. To solve this I thought it would be more circumstantial if we can get the value of water content inside the soil in order to make a decision for watering the plants appropriately.
+In this project lets try to build a circuit which can measure the water content value of the soil eventually control the flow using Raspberry Pi.</description>
+    </item>
+    
+  </channel>
+</rss>

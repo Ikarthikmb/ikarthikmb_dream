@@ -6,22 +6,13 @@
     <description>Recent content in Categories on Karthik Mahendra</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 May 2021 18:57:54 +0530</lastBuildDate><atom:link href="https://ikarthikmb.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>productivity</title>
-      <link>https://ikarthikmb.github.io/categories/productivity/</link>
-      <pubDate>Thu, 20 May 2021 18:57:54 +0530</pubDate>
+      <title>posts</title>
+      <link>https://ikarthikmb.github.io/categories/posts/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://ikarthikmb.github.io/categories/productivity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>verilog</title>
-      <link>https://ikarthikmb.github.io/categories/verilog/</link>
-      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikarthikmb.github.io/categories/verilog/</guid>
+      <guid>https://ikarthikmb.github.io/categories/posts/</guid>
       <description></description>
     </item>
     
@@ -62,11 +53,11 @@
     </item>
     
     <item>
-      <title>raspberry pi</title>
-      <link>https://ikarthikmb.github.io/categories/raspberry-pi/</link>
-      <pubDate>Sun, 24 May 2020 01:59:33 +0530</pubDate>
+      <title>projects</title>
+      <link>https://ikarthikmb.github.io/categories/projects/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ikarthikmb.github.io/categories/raspberry-pi/</guid>
+      <guid>https://ikarthikmb.github.io/categories/projects/</guid>
       <description></description>
     </item>
     

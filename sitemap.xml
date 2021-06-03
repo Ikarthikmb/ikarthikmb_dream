@@ -14,7 +14,10 @@
     <loc>https://ikarthikmb.github.io/posts/</loc>
     <lastmod>2021-05-24T00:34:08+05:30</lastmod>
   </url><url>
-    <loc>https://ikarthikmb.github.io/categories/productivity/</loc>
+    <loc>https://ikarthikmb.github.io/categories/posts/</loc>
+    <lastmod>2021-05-24T00:34:08+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/productivity/</loc>
     <lastmod>2021-05-20T18:57:54+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/tags/sirishortcuts/</loc>
@@ -38,9 +41,6 @@
     <loc>https://ikarthikmb.github.io/tags/verilog/</loc>
     <lastmod>2021-05-24T00:34:08+05:30</lastmod>
   </url><url>
-    <loc>https://ikarthikmb.github.io/categories/verilog/</loc>
-    <lastmod>2021-05-24T00:34:08+05:30</lastmod>
-  </url><url>
     <loc>https://ikarthikmb.github.io/tags/electronics/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -54,15 +54,12 @@
     <lastmod>2021-05-30T18:24:58+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/wallpaper/</loc>
-    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-30T18:24:58+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/categories/walpaper/</loc>
     <lastmod>2021-05-30T18:24:58+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/mindmaps/carriertransport_map/</loc>
-    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ikarthikmb.github.io/wallpaper/carriertransport_map/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/wallpaper/fouriertransform_note/</loc>
@@ -110,20 +107,35 @@
     <loc>https://ikarthikmb.github.io/tags/howto/</loc>
     <lastmod>2020-05-24T01:59:33+05:30</lastmod>
   </url><url>
-    <loc>https://ikarthikmb.github.io/categories/raspberry-pi/</loc>
-    <lastmod>2020-05-24T01:59:33+05:30</lastmod>
-  </url><url>
     <loc>https://ikarthikmb.github.io/posts/rpi4_setup_wifi/</loc>
     <lastmod>2020-05-24T01:59:33+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/tags/wifi/</loc>
     <lastmod>2020-05-24T01:59:33+05:30</lastmod>
   </url><url>
+    <loc>https://ikarthikmb.github.io/tags/circuits/</loc>
+    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/projects/ultrasonic_rpi/</loc>
+    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/projects/</loc>
+    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/categories/projects/</loc>
+    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/tags/sensors/</loc>
+    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ikarthikmb.github.io/tags/ethernet/</loc>
     <lastmod>2020-04-03T01:59:33+05:30</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/posts/rpi4_setup_w_ethernet/</loc>
     <lastmod>2020-04-03T01:59:33+05:30</lastmod>
+  </url><url>
+    <loc>https://ikarthikmb.github.io/projects/soil_moisture_rpi/</loc>
+    <lastmod>2020-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ikarthikmb.github.io/mindmaps/atom_mm/</loc>
     <lastmod>2019-11-21T00:00:00+00:00</lastmod>
