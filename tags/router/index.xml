@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>router on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/tags/router/</link>
+    <description>Recent content in router on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/tags/router/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementation of a 1 x 3 Router</title>
+      <link>https://ikarthikmb.github.io/projects/router1x3_post/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/projects/router1x3_post/</guid>
+      <description>A router is a networking device that forwards data packets between computer networks. Routers perform the traffic directing functions on the Internet. Data sent through the internet, such as a web page or email, is in the form of data packets. A packet is typically forwarded from one router to another router through the networks that constitute an internetwork (e.g. the Internet) until it reaches its destination node.1
+First IN First OUT Description</description>
+    </item>
+    
+  </channel>
+</rss>

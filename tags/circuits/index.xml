@@ -25,8 +25,7 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram.</d
       <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ikarthikmb.github.io/projects/soil_moisture_rpi/</guid>
-      <description>Contents
- Hardware: Circuit Connection:  Essential Packages   The Code Youtube Video Tutorial:   Do you know how often to water plants? Or outpoured plants and lost them. To solve this I thought it would be more circumstantial if we can get the value of water content inside the soil in order to make a decision for watering the plants appropriately.
+      <description>Do you know how often to water plants? Or outpoured plants and lost them. To solve this I thought it would be more circumstantial if we can get the value of water content inside the soil in order to make a decision for watering the plants appropriately.
 In this project lets try to build a circuit which can measure the water content value of the soil eventually control the flow using Raspberry Pi.</description>
     </item>
     
