@@ -17,7 +17,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.84.4" />
 
 <link rel="canonical" href="https://ikarthikmb.github.io/projects/ultrasonic_rpi/" />
 
@@ -29,8 +29,8 @@ Hardware  Raspberry Pi 2/3/4 Pi Camera PIR Sensor Jumpers  Circuit Connection
 Connect the PIR sensor to raspberry pi as shown in the above circuit diagram." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikarthikmb.github.io/projects/ultrasonic_rpi/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2020-04-12T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-04-12T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2020-04-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-12T00:00:00+00:00" />
 
 
 
@@ -278,25 +278,25 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
    <span style="color:#ff79c6">import</span> time
 
    GPIO<span style="color:#ff79c6">.</span>setmode(GPIO<span style="color:#ff79c6">.</span>BCM)
-   GPIO<span style="color:#ff79c6">.</span>setwarnings(False)
+   GPIO<span style="color:#ff79c6">.</span>setwarnings(<span style="color:#ff79c6">False</span>)
 
    pir<span style="color:#ff79c6">=</span>MotionSensor(<span style="color:#bd93f9">23</span>)
    camera<span style="color:#ff79c6">=</span>PiCamera()
    camera<span style="color:#ff79c6">.</span>rotation <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">180</span>
    camera<span style="color:#ff79c6">.</span>start_preview()
 
-   <span style="color:#ff79c6">while</span> True:
+   <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">True</span>:
     GPIO<span style="color:#ff79c6">.</span>setup(<span style="color:#bd93f9">24</span>, GPIO<span style="color:#ff79c6">.</span>OUT)
     <span style="color:#ff79c6">if</span> pir<span style="color:#ff79c6">.</span>wait_for_motion():
         GPIO<span style="color:#ff79c6">.</span>output(<span style="color:#bd93f9">24</span>, GPIO<span style="color:#ff79c6">.</span>HIGH)
         <span style="color:#6272a4">#time.sleep(0.1)</span>
-        <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;Motion Detected&#34;</span>)
+        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Motion Detected&#34;</span>)
         camera<span style="color:#ff79c6">.</span>capture(<span style="color:#f1fa8c">&#39;/home/pi/Marvel/PiCam/PiImage/Strangers/image-&#39;</span><span style="color:#ff79c6">+</span> time<span style="color:#ff79c6">.</span>ctime()<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#39;.png&#39;</span>)
-         <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;image-&#34;</span><span style="color:#ff79c6">+</span>time<span style="color:#ff79c6">.</span>ctime())
+         <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;image-&#34;</span><span style="color:#ff79c6">+</span>time<span style="color:#ff79c6">.</span>ctime())
          GPIO<span style="color:#ff79c6">.</span>output(<span style="color:#bd93f9">24</span>, GPIO<span style="color:#ff79c6">.</span>LOW)
 
     <span style="color:#ff79c6">else</span>:
-        <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;Motion not Detected&#34;</span>)
+        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Motion not Detected&#34;</span>)
     time<span style="color:#ff79c6">.</span>sleep(<span style="color:#bd93f9">3</span>)
    camera<span style="color:#ff79c6">.</span>stop_preview()
    camera<span style="color:#ff79c6">.</span>close()</code></pre></td></tr></table>
@@ -376,10 +376,6 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
     
     
     
-    
-      
-    
-      
     
       
     
@@ -508,26 +504,8 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
           
           
           
-            <a class="ui label" href="/tags/latex/" title="latex">
-              latex
-            </a>
-          
-          
-          
             <a class="ui label" href="/tags/math/" title="math">
               math
-            </a>
-          
-          </div>
-        </div>
-        <div class="content">
-    
-          <div class="dream-tags" style="margin-left: 1.5rem;">
-          
-          
-          
-            <a class="ui label" href="/tags/meme/" title="meme">
-              meme
             </a>
           
           
@@ -535,6 +513,12 @@ Connect the PIR sensor to raspberry pi as shown in the above circuit diagram."/>
             <a class="ui label" href="/tags/microwaves/" title="microwaves">
               microwaves
             </a>
+          
+          </div>
+        </div>
+        <div class="content">
+    
+          <div class="dream-tags" style="margin-left: 1.5rem;">
           
           
           
