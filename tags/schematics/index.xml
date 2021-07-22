@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>schematics on Karthik Mahendra</title>
+    <link>https://ikarthikmb.github.io/tags/schematics/</link>
+    <description>Recent content in schematics on Karthik Mahendra</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/tags/schematics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementation of a CMOS 3-bit Wallace Tree Multiplier using SKY130 PDK with eSim</title>
+      <link>https://ikarthikmb.github.io/projects/wallace3_tree/</link>
+      <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/projects/wallace3_tree/</guid>
+      <description>A Wallace multiplier is a digital circuit which multiplies two integers in binary format. It uses half and full adders to sum partial products in stages until two numbers are left. In this project I shall be developing a 3-bit multiplier using Wallace tree reduction. Before you go through this make you have the sky130pdk in this folder and change the current path in &amp;ldquo;wallace3tree_test.cir&amp;rdquo; directing to the sky130 pdk.</description>
+    </item>
+    
+  </channel>
+</rss>

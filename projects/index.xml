@@ -6,7 +6,16 @@
     <description>Recent content in Projects on Karthik Mahendra</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ikarthikmb.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementation of a CMOS 3-bit Wallace Tree Multiplier using SKY130 PDK with eSim</title>
+      <link>https://ikarthikmb.github.io/projects/wallace3_tree/</link>
+      <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikarthikmb.github.io/projects/wallace3_tree/</guid>
+      <description>A Wallace multiplier is a digital circuit which multiplies two integers in binary format. It uses half and full adders to sum partial products in stages until two numbers are left. In this project I shall be developing a 3-bit multiplier using Wallace tree reduction. Before you go through this make you have the sky130pdk in this folder and change the current path in &amp;ldquo;wallace3tree_test.cir&amp;rdquo; directing to the sky130 pdk.</description>
+    </item>
+    
     <item>
       <title>Implementation of a 1 x 3 Router</title>
       <link>https://ikarthikmb.github.io/projects/router1x3_post/</link>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Implementation of a CMOS 3-bit Wallace Tree Multiplier using SKY130 PDK with eSim | Karthik Mahendra</title>
+
+    
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="ikarthikmb" />
+<meta name="description" content="Karthik Mahendra" />
+
+
+
+<meta name="generator" content="Hugo 0.86.0" />
+
+<link rel="canonical" href="https://ikarthikmb.github.io/projects/wallace3_tree/" />
+
+
+<meta property="og:title" content="Implementation of a CMOS 3-bit Wallace Tree Multiplier using SKY130 PDK with eSim" />
+<meta property="og:description" content="A Wallace multiplier is a digital circuit which multiplies two integers in binary format. It uses half and full adders to sum partial products in stages until two numbers are left. In this project I shall be developing a 3-bit multiplier using Wallace tree reduction. Before you go through this make you have the sky130pdk in this folder and change the current path in &ldquo;wallace3tree_test.cir&rdquo; directing to the sky130 pdk." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikarthikmb.github.io/projects/wallace3_tree/" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2021-07-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-08T00:00:00+00:00" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Implementation of a CMOS 3-bit Wallace Tree Multiplier using SKY130 PDK with eSim"/>
+<meta name="twitter:description" content="A Wallace multiplier is a digital circuit which multiplies two integers in binary format. It uses half and full adders to sum partial products in stages until two numbers are left. In this project I shall be developing a 3-bit multiplier using Wallace tree reduction. Before you go through this make you have the sky130pdk in this folder and change the current path in &ldquo;wallace3tree_test.cir&rdquo; directing to the sky130 pdk."/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/site_bg/vertical_lightcir.png);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: black;
+    
+
+    
+    background-image: url(/site_bg/vertical_darkcir.png);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = 'https:\/\/ikarthikmb.github.io\/'"></i>
+  </div>
+  
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+  
+  
+  <div class="item">
+    <i class="large link search icon" onclick="toggleSearch()"></i>
+  </div>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+  
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#ports-of-cmos-3-bit-wallace-multiplier">Ports of CMOS 3-bit Wallace Multiplier</a></li>
+    <li><a href="#components-of-3-bit-wallace-tree-multiplier">Components of 3-bit Wallace Tree Multiplier</a></li>
+    <li><a href="#sub-circuits">Sub-Circuits</a></li>
+    <li><a href="#wallace-tree-algorithm">Wallace Tree Algorithm</a>
+      <ul>
+        <li><a href="#3-bit-reduction-algorithm">3 bit Reduction algorithm</a></li>
+      </ul>
+    </li>
+    <li><a href="#schematics">Schematics</a></li>
+    <li><a href="#steps-to-run-project">Steps To Run Project:</a>
+      <ul>
+        <li><a href="#step-1-downloading-the-repository">Step-1: Downloading the repository</a></li>
+        <li><a href="#step-2-creating-esim-project">Step-2: Creating eSim Project</a></li>
+        <li><a href="#step-3-and-gate">Step-3: AND gate</a></li>
+        <li><a href="#step-4-xor-gate">Step-4: XOR gate</a></li>
+        <li><a href="#step-5-half-adder">Step-5: Half Adder</a></li>
+        <li><a href="#step-6-full-adder">Step-6: Full Adder</a></li>
+        <li><a href="#step-7-3-bit-wallace-tree-multiplier">Step-7: 3-bit Wallace tree Multiplier</a></li>
+        <li><a href="#step-8-convert-kicad-to-ngspice">Step-8: Convert KiCAD to NGSpice</a></li>
+        <li><a href="#step-9-sky130-tech">Step-9: SKY130 Tech</a></li>
+        <li><a href="#step-10-ngspice-simulation">Step-10: NGSpice Simulation</a></li>
+      </ul>
+    </li>
+    <li><a href="#video-tutorial">Video Tutorial</a></li>
+    <li><a href="#references">References:</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Implementation of a CMOS 3-bit Wallace Tree Multiplier using SKY130 PDK with eSim<span class="sub header">
+            <span class="left">
+              @
+              
+                
+                  <a href="https://ikarthikmb.github.io" target="_blank">Karhtik Mahendra</a>
+                
+              
+
+              | 
+                  
+                    Thursday, Jul 8, 2021
+                  
+                
+
+              | 3 minutes read
+
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Implementation%20of%20a%20CMOS%203-bit%20Wallace%20Tree%20Multiplier%20using%20SKY130%20PDK%20with%20eSim&url=https%3a%2f%2fikarthikmb.github.io%2fprojects%2fwallace3_tree%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fikarthikmb.github.io%2fprojects%2fwallace3_tree%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+        <img class="cover" src="/projects/wtree/wallacetree_thumb.JPEG" />
+        
+
+        <p>A Wallace multiplier is a digital circuit which multiplies two
+integers in binary format. It uses half and full adders to sum
+partial products in stages until two numbers are left. In this
+project I shall be developing a 3-bit multiplier using Wallace
+tree reduction. Before you go through this make you have the
+sky130pdk in this folder and change the current path in
+&ldquo;wallace3tree_test.cir&rdquo; directing to the sky130 pdk.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>NGSpice Software</li>
+<li>eSim</li>
+</ul>
+<h2 id="ports-of-cmos-3-bit-wallace-multiplier">Ports of CMOS 3-bit Wallace Multiplier</h2>
+<p><img src="/projects/wtree/wallace_multiplier_draw.jpeg" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Input</td>
+<td>3-bit input</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Input</td>
+<td>3-bit input</td>
+</tr>
+<tr>
+<td>z</td>
+<td>Output</td>
+<td>6-bit output</td>
+</tr>
+</tbody>
+</table>
+<p>| Here &ldquo;a&rdquo; and &ldquo;b&rdquo; are 3-bit input digits, and the output &ldquo;z&rdquo; contains 6-bits.</p>
+<h2 id="components-of-3-bit-wallace-tree-multiplier">Components of 3-bit Wallace Tree Multiplier</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND gates</td>
+<td>9 nos</td>
+</tr>
+<tr>
+<td>Half Adders</td>
+<td>3 nos</td>
+</tr>
+<tr>
+<td>Full Adders</td>
+<td>3 nos</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sub-circuits">Sub-Circuits</h2>
+<ol>
+<li>halfadder</li>
+<li>fulladder</li>
+<li>and_gate</li>
+<li>xor_gate</li>
+</ol>
+<h2 id="wallace-tree-algorithm">Wallace Tree Algorithm</h2>
+<p><img src="/projects/wtree/stages.jpeg" alt=""></p>
+<p>It has three steps:</p>
+<ol>
+<li>Multiply each bit of one of the arguments, by each bit of the other.</li>
+<li>Reduce the number of partial products to two by layers of full and half adders.</li>
+<li>Group the wires in two numbers, and add them with a conventional adder.</li>
+</ol>
+<h3 id="3-bit-reduction-algorithm">3 bit Reduction algorithm</h3>
+<p><img src="/projects/wtree/stages_gif.gif" alt=""></p>
+<h2 id="schematics">Schematics</h2>
+<p>You can view the schematic using <strong>esim</strong> software, launch esim and
+open this folder, the esim automatically detects the <code>.proj</code> file
+and creats a project for &ldquo;<strong>wallace3tree</strong>&rdquo;. Then select respective
+&ldquo;<strong>.sch</strong>&rdquo; file to launch the schematic of the project.</p>
+<h2 id="steps-to-run-project">Steps To Run Project:</h2>
+<h3 id="step-1-downloading-the-repository">Step-1: Downloading the repository</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/Ikarthikmb/wallace-tree.git
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="step-2-creating-esim-project">Step-2: Creating eSim Project</h3>
+<p>Open eSim application and select <strong>open project</strong> then navigate to folder <code>wallace-tree</code>
+to select <strong>wallace3tree</strong>. The <strong>wallace3tree</strong> project file is now added in the eSim.</p>
+<h3 id="step-3-and-gate">Step-3: AND gate</h3>
+<p><img src="/projects/wtree/and_tt.jpeg" alt="AND gate Truth table"></p>
+<p><strong>AND gate schematic</strong></p>
+<p><img src="/projects/wtree/and_sch_gif.gif" alt="AND gate schematic"></p>
+<p>Draw a schematic with eSim Schematic editor for an <strong>AND gate</strong> logic circuit with cmos logic,
+perform CRC error check and export the <strong>ngspice netlist</strong>.</p>
+<h3 id="step-4-xor-gate">Step-4: XOR gate</h3>
+<p><img src="/projects/wtree/xor_tt.jpeg" alt="XOR gate Truth table"></p>
+<p><img src="/projects/wtree/xor_sch_gif.gif" alt="XOR gate schematic"></p>
+<p>Draw a schematic with eSim Schematic editor for an <strong>XOR gate</strong> logic circuit with cmos logic,
+perform CRC error check and export the <strong>ngspice netlist</strong>.</p>
+<h3 id="step-5-half-adder">Step-5: Half Adder</h3>
+<p><img src="/projects/wtree/ha_tt.jpeg" alt="Half Adder Truth table"></p>
+<p><img src="/projects/wtree/ha_sch_gif.gif" alt="Half Adder schematic"></p>
+<p>Draw a schematic with eSim Schematic editor for an <strong>Half Adder</strong> circuit with AND and XOR gates,
+then perform CRC error check and export the <strong>ngspice netlist</strong>.</p>
+<h3 id="step-6-full-adder">Step-6: Full Adder</h3>
+<p><img src="/projects/wtree/fa_tt.jpeg" alt="Full Adder Truth table"></p>
+<p><img src="/projects/wtree/fa_sch_gif.gif" alt="Full Adder schematic"></p>
+<p>Draw a schematic with eSim Schematic editor for a <strong>Full Adder</strong> circuit with AND and XOR gates,
+then perform CRC error check and export the <strong>ngspice netlist</strong>.</p>
+<h3 id="step-7-3-bit-wallace-tree-multiplier">Step-7: 3-bit Wallace tree Multiplier</h3>
+<p><img src="/projects/wtree/wallace_sch_gif.gif" alt=" 3-bit Wallace Tree Multiplier schematic"></p>
+<p>Draw a schematic with eSim Schematic editor for a <strong>3-bit Wallace Multiplier</strong> logic circuit
+with AND gates, half adders and full adders. Then perform CRC error check and export the <strong>ngspice netlist</strong>.</p>
+<h3 id="step-8-convert-kicad-to-ngspice">Step-8: Convert KiCAD to NGSpice</h3>
+<p>After the netlist is generated, select <strong>kicad to spice</strong> from the eSim window to convert the
+kicad schematic to ngspice model. Rename the netlist file <code>wallace3tree.cir.out</code> to <code>wallace3tree_test.cir</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cp wallace3tree.cir.out wallace3tree_test.cir
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="step-9-sky130-tech">Step-9: SKY130 Tech</h3>
+<p>Add the path for the sky130pdk in the <code>wallace3tree.cir.out</code> file. In the subcircuit <code>.sub</code> file replace the
+model mosfet_n with <code>sky130_fd_pr__nfet_01v8</code> and mosfet_p with <code>sky130_fd_pr__pfet_01v8</code>.
+Now, lets simulate the circuit with ngspice.</p>
+<h3 id="step-10-ngspice-simulation">Step-10: NGSpice Simulation</h3>
+<p><img src="/projects/wtree/IMG_2989.gif" alt=""></p>
+<p>Lets assign the inputs <code>a</code> and <code>b</code> with the pulse signals and try to observe the output.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ngspice wallace3tree_test.cir
+</code></pre></td></tr></table>
+</div>
+</div><p>With this the ciruit simluation is verified. If you encounter with errors recheck the circuit and perform the <code>run</code> again.</p>
+<h2 id="video-tutorial">Video Tutorial</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Da3kzKzzuLs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="references">References:</h2>
+<ul>
+<li>Wallace Tree: <a href="https://en.wikipedia.org/wiki/Wallace_tree">https://en.wikipedia.org/wiki/Wallace_tree</a></li>
+<li>eSim EDA tool: <a href="https://esim.fossee.in">https://esim.fossee.in</a></li>
+</ul>
+<hr>
+<p>This is a project submitted to <a href="https://hackathon.fossee.in/esim/">eSim marathon</a> partnered with
+<a href="https://fossee.in/about">Free/Libre and Open Source Software for Education(fossee)</a>,
+<a href="https://www.iitb.ac.in/">Indian Institute of Technology, Bombay(IITB)</a>,
+<a href="https://www.vlsisystemdesign.com/about-us/">VLSI System Design(VSD)</a> and
+<a href="https://www.education.gov.in/en">Ministry of Education, India</a> during May-June of 2021.</p>
+
+      </article>
+    </section>
+
+    
+
+    
+    <article class="ui segment utterances-comments" data-html2canvas-ignore>
+      <script
+        src="https://utteranc.es/client.js"
+        repo="ikarthikmb/ikarthikmb.github.io"
+        issue-term="og:title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </article>
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 Karthik Mahendra</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/me.png" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">Karthik Mahendra<span class="sub header">One Million Dreams Aside, One Tiny Brave Heart Inside</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/posts">
+        <i class="archive icon" title="Archives"></i>
+      </a>
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+
+    
+    
+
+    <div class="tags-with-dropdown">
+      <div class="ui accordion">
+        <div class="title">
+          <div class="ui horizontal list">
+            <a class="item dropdown" href="#">
+              <i class="chevron right icon dropdown-icon"></i>
+            </a>
+          </div>
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/circuits/" title="circuits">
+              circuits
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/communications/" title="communications">
+              communications
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/computing/" title="computing">
+              computing
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/crypto/" title="crypto">
+              crypto
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/electronics/" title="electronics">
+              electronics
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/esim/" title="eSim">
+              eSim
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/ethernet/" title="ethernet">
+              ethernet
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/gtkwave/" title="gtkwave">
+              gtkwave
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/howto/" title="howto">
+              howto
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/inverter/" title="inverter">
+              inverter
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/iverilog/" title="iverilog">
+              iverilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/math/" title="math">
+              math
+            </a>
+          
+          </div>
+        </div>
+        <div class="content">
+    
+          <div class="dream-tags" style="margin-left: 1.5rem;">
+          
+          
+          
+            <a class="ui label" href="/tags/microwaves/" title="microwaves">
+              microwaves
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/mindmaps/" title="mindmaps">
+              mindmaps
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/note/" title="note">
+              note
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/productivity/" title="productivity">
+              productivity
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/raspberry-pi/" title="raspberry pi">
+              raspberry pi
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/router/" title="router">
+              router
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/schematics/" title="schematics">
+              schematics
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/semiconductors/" title="semiconductors">
+              semiconductors
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/sensors/" title="sensors">
+              sensors
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/sirishortcuts/" title="sirishortcuts">
+              sirishortcuts
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/verilog/" title="verilog">
+              verilog
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/wallpaper/" title="wallpaper">
+              wallpaper
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/wifi/" title="wifi">
+              wifi
+            </a>
+          
+          </div>
+    
+        </div>
+      </div>
+    </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment markdown-body">
+      <div class="ui medium header">About Me</div>
+      <p>Hi, my name is Karthik Mahendra.</p>
+<p>Electronic circuit designer, curious of smart technology, wanderlust, intrigued with life-hacking.</p>
+<p>A self-learner, learn through practical experiences, enjoys the process underwent with overwhelming challenges. Spends spare time on capturing shots, enhancing them, also an amateur video editor.</p>
+
+    </article>
+  </div>
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">Social Links</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <div class="item">
+    <a href="/index.xml">
+      <i class="large rss square icon" title="RSS"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="mailto:karthikmb8@gmail.com">
+      <i class="large mail icon" title="Email"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://twitter.com/qrthik" target="_blank">
+      <i class="large twitter icon" title="Twitter"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+
+  
+
+  
+  <div class="item">
+    <a href="https://www.linkedin.com/in/karthik-mb" target="_blank">
+      <i class="large linkedin icon" title="Linkedin"></i>
+    </a>
+  </div>
+  
+
+  
+  <div class="item">
+    <a href="https://github.com/ikarthikmb" target="_blank">
+      <i class="large github icon" title="GitHub"></i>
+    </a>
+  </div>
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="Search" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/ikarthikmb.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    <script>
+  window.defaultDark =  true 
+  window.backgroundDark = "black"
+  window.backgroundImageDark = "/site_bg/vertical_darkcir.png"
+  window.darkNav =  true 
+  window.maxTags =  12 
+  window.hasTwitterEmbed =  true 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

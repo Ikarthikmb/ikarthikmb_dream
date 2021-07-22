@@ -17,7 +17,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.84.4" />
+<meta name="generator" content="Hugo 0.86.0" />
 
 <link rel="canonical" href="https://ikarthikmb.github.io/projects/soil_moisture_rpi/" />
 
@@ -235,7 +235,7 @@ In this project lets try to build a circuit which can measure the water content 
 <p>Before you run the code you have to install few libraries, move on with the following steps.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -243,7 +243,7 @@ In this project lets try to build a circuit which can measure the water content 
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get update
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get update
 sudo apt-get install build-essential python-dev python-smbus git
 <span style="color:#8be9fd;font-style:italic">cd</span> ~
 git clone https://github.com/adafruit/Adafruit_Python_MCP3008.git
@@ -255,7 +255,7 @@ sudo python setup.py install</code></pre></td></tr></table>
 <p>Once the library has been installed it&rsquo;s time to execute the code. You can use the below code or download it from <a href="https://github.com/Ikarthikmb/Hardware-Codes/blob/master/RaspberryPi/moist-soil.py">here</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -275,7 +275,7 @@ sudo python setup.py install</code></pre></td></tr></table>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#ff79c6">import</span> RPi.GPIO <span style="color:#ff79c6">as</span> GPIO
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#ff79c6">import</span> RPi.GPIO <span style="color:#ff79c6">as</span> GPIO
 <span style="color:#ff79c6">from</span> time <span style="color:#ff79c6">import</span> sleep
 
 <span style="color:#ff79c6">import</span> Adafruit_MCP3008
@@ -427,6 +427,10 @@ am <span style="color:#ff79c6">=</span> Adafruit_MCP3008<span style="color:#ff79
     
       
     
+      
+    
+      
+    
     
 
     
@@ -478,6 +482,12 @@ am <span style="color:#ff79c6">=</span> Adafruit_MCP3008<span style="color:#ff79
           
           
           
+            <a class="ui label" href="/tags/esim/" title="eSim">
+              eSim
+            </a>
+          
+          
+          
             <a class="ui label" href="/tags/ethernet/" title="ethernet">
               ethernet
             </a>
@@ -512,17 +522,17 @@ am <span style="color:#ff79c6">=</span> Adafruit_MCP3008<span style="color:#ff79
               math
             </a>
           
-          
-          
-            <a class="ui label" href="/tags/microwaves/" title="microwaves">
-              microwaves
-            </a>
-          
           </div>
         </div>
         <div class="content">
     
           <div class="dream-tags" style="margin-left: 1.5rem;">
+          
+          
+          
+            <a class="ui label" href="/tags/microwaves/" title="microwaves">
+              microwaves
+            </a>
           
           
           
@@ -552,6 +562,12 @@ am <span style="color:#ff79c6">=</span> Adafruit_MCP3008<span style="color:#ff79
           
             <a class="ui label" href="/tags/router/" title="router">
               router
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/schematics/" title="schematics">
+              schematics
             </a>
           
           
